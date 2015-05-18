@@ -1,7 +1,13 @@
 <?php
 class dispatch
 {
-	function dispatch($request)
+    private $request = [];
+    
+    function __construct($request) {
+        $this->request = $request;
+    }
+    
+	public function dispatch()
 	{
 		/*
 		switch ($request[1])
@@ -15,8 +21,9 @@ class dispatch
 				break;
 		}
 		*/
-		require_once('../modules/ctomas/controllers/' . $request->getRequest(); '.php');
-		return ejecutarController($request);
+		require_once('../modules/ctomas/controllers/' . $this->request[1] . '.php');
+		return ejecutarController($this->request);
 		
 	}
+    
 }

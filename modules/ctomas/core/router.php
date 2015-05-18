@@ -1,7 +1,7 @@
 <?php
-class router
+class Router
 {
-	function getRequest($config)
+	static function getRequest($config)
 	{
 		/*$config = array ('usuarios'=>array('index','insert', 'select', 'update', 'delete'), 'error'=>array('error404'), 'index'=>array('index'), 'static'=>array('contacto', 'portada') );*/
 		$parameters = array();
@@ -28,9 +28,9 @@ class router
 		
 
 		if(count($request)>3){
-			for($i=3; $i<(count($request)); $i++){
-				this -> $  [] = $request[$i];
-			}
+            for($i=3; $i<(count($request)); $i++){
+                $parameters[] = $request[$i];
+            }
 			
 			//3) Contar cuantos elementos tiene el array de parametros. Si es número impar -> controller=error | action=error404 Y SALIMOS
 			if((count($parameters))%2 !=0){
@@ -58,7 +58,7 @@ class router
 		
 		if (!isset($request[1]) || $request[1]=="") {
 			$request[1] = 'index'; $request[2] = 'index';
-			return redireccion($request);
+			return self::redireccion($request);
 		}
 
 		//2) Si hay valor, preguntamos si ese valor existe como controlador. Si no -> Controller=Error | Action=error404
@@ -70,22 +70,22 @@ class router
 				//4) Si ha escrito action, preguntamos si ese action existe dentro del controller. Si no -> controller=error | action=error404 Por ejemplo: miweb.com/usuarios/blablablaba
 					//5)Si Action existe dentro del controller -> controller=elquehayaescrito | action=laquehayaescrito
 				if(in_array($request[2], $config[$request[1]])){
-					return redireccion($request);
+					return self::redireccion($request);
 				} else {
 					$request[1] = 'errores'; $request[2] = 'error404';
-					return redireccion($request);
+					return self::redireccion($request);
 				}
 			} else {
 				$request[2] = 'index';//action
-				return redireccion($request);
+				return self::redireccion($request);
 			}
 		} else {
 				$request[1] = 'errores'; $request[2] = 'error404';//controller y action
-				return redireccion($request);
+				return self::redireccion($request);
 		}
 	}
 
-	function redireccion($request)
+	static function redireccion($request)
 	{
 		// de /index/index ->  /static/portada
 		if ($request[1] == 'index' && $request[2] == 'index') {
