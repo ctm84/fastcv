@@ -38,16 +38,11 @@ class FrontController
 
 		//3) "Troceamos" la uri tomando como referencia las / y la guardamos en un array. //Ejemplo: http://miweb.com/usuarios/verperfil/1067 [0]= vacio [1]= usuarios [2]= verperfil [3]=1067  
 		$request = explode("/", $uri);
-		
-		//Los pasos anteriores en una sola instruccion: 
-		/*$request = explode( '/', rtrim($_SERVER['REQUEST_URI'], "/") */
-
+        
 			
 		/* ********* PARÁMETROS **************************************** */                                                   
 		//1) Comprobar si nuestro array troceado ($request) tiene mas elementos que 3 (porque si tiene más, es que empiezan los pares key/value)
 		//2) LLevar a otro array todos los elementos que empiezan a ser key1, value1, key2, etc. Ejemplo: miweb.com/usuarios/select/id/123 -> [0]=id [1]=123
-		
-
 		if(count($request)>3){
             for($i=3; $i<(count($request)); $i++){
                 $parameters[] = $request[$i];
@@ -63,7 +58,6 @@ class FrontController
 				//A- recorrer ese array y capturamos los pares de parámetros para asignar al elemento par = key y al elemento impar = value.
 				//B- el resultado tiene que ser -> $parametersRequest = [{'key1' => 'value1', 'key2' => 'value2', ...}]
 			//5) En la variable $request solo tendremos $request = ['', 'controller', 'action', $parametersRequest]
-			
 			elseif((count($parameters))%2 ==0){
 			
 				for($i=0; $i<count($parameters); $i = $i+2){

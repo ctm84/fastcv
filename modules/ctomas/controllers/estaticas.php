@@ -10,7 +10,7 @@ class Estaticas
     function index()
     {
         $action = FrontController::getInstance()->request[2] = 'portada';
-        return $this->$action();  // return portada();
+        return $this->$action();  
     } 
 
     function contacto()
@@ -23,38 +23,9 @@ class Estaticas
 
     function portada()
     {
-        //return renderView($this->request[2]);
-        /*
-        * ANTES
-        *
-        return renderLayout(
-            $this->layout,
-            renderView(FrontController::getInstance()->request[2])
-        );
-        */
-        
-        // AHORA:
-        /*
         return FrontController::getInstance()->renderLayout(
             $this->layout,
             FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
         );
-        */
-        
-        return FrontController::getInstance()->renderLayout(
-            $this->layout,
-            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
-        );
-                
-        
-        /*
-        * LO MISMO
-        *
-        $fc = FrontController::getInstance();
-        return $fc->renderLayout(
-            $this->layout,
-            $fc->renderView($fc->request[2])
-        );
-        */
     } 
 }
