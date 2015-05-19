@@ -1,8 +1,6 @@
 <?php
-class ConfigDB
+function getConfigDB ()
 {
-	static function getConfigDB ()
-	{
 
 		return array(
 			'host' => "localhost",
@@ -10,5 +8,4 @@ class ConfigDB
 			'pass' => "",
 			'db' => "pruebaproyecto"
 		);
-	}
 }

@@ -1,29 +1,33 @@
 <?php
-function ejecutarController($request)
+class Usuarios
 {
-	$action= $request[2];
-	return $action(); 
-}
-
-//actions
-//************************//
-function index($request)
-{
-    $request[2] = 'select';
-	return select($request);
-}
-
-function select()
-{
+    private $request = [];
     
-}
+    function __construct($request)
+    {
+        $this->request = $request;
+    }    
 
-function delete()
-{
-	
-}
+    //actions
+    //************************//
+    function index()
+    {
+        $this->$request[2] = 'select';
+        return $this->select();
+    }
 
-function update()
-{
-	
-} 
+    function select()
+    {
+
+    }
+
+    function delete()
+    {
+
+    }
+
+    function update()
+    {
+
+    } 
+}

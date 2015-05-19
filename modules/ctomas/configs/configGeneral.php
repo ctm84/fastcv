@@ -1,8 +1,6 @@
 <?php
-class ConfigGeneral
-{
-	static function getConfigGeneral ()
-	{   
+function getConfigGeneral ()
+{   
 		//array controllers   
 		return  array (
 			'usuarios'=>array('index','insert', 'select', 'update', 'delete'), 
@@ -11,5 +9,4 @@ class ConfigGeneral
 			'index'=>array('index'), 
 			'contacto'=>array('index'), 
 		);  
-	}
 }

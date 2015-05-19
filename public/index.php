@@ -1,13 +1,17 @@
  <?php
-require_once('../modules/ctomas/core/router.php');
-require_once('../modules/ctomas/core/dispatch.php');
-require_once('../modules/ctomas/configs/config.php');
+require_once('../modules/ctomas/core/FrontController.php');
 
-$config = Config::getConfig();
+/* ************************************************ */
+/*
+1- Instanciar un objeto de la clase FrontController (trabajaremos con ese objeto)
+2- Conseguir la config
+3- Conseguir un Request
+4- Hacer un dispatch para obtener un Response
+5- Mostrar ese Response
+*/  
 
-$request = Router::getRequest($config); //se puede llamar así por ser estatica. Es igual que instanciar un objeto y llamar al metodo. 
+$fc = FrontController::getInstance();
+$fc->getConfig();
+$fc->getRequest();
+print_r($fc->dispatch()); //el response
 
-$d = new Dispatch($request);  // crear objeto y pasarle parametro
-$response = $d->dispatch(); //llamar al metodo y guardar respuesta en una variable.   
-
-print_r($response);

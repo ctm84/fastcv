@@ -1,14 +1,11 @@
 <?php
 class Config
 {
-	static function getConfig()
+	function getConfig()
 	{
 		require_once('../modules/ctomas/configs/configDB.php');
 		require_once('../modules/ctomas/configs/configGeneral.php'); 
 
-		return array_merge(
-			ConfigDB::getConfigDB(),
-			ConfigGeneral::getConfigGeneral()
-		);
+		return array_merge(getConfigDB(), getConfigGeneral());
 	}
 }

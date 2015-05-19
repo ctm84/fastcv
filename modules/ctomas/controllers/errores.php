@@ -1,37 +1,34 @@
 <?php
+require_once('../modules/ctomas/core/FrontController.php');
+
 class Errores
 {
-	require_once("../modules/ctomas/core/renderView.php");
-	require_once("../modules/ctomas/core/renderLayout.php");
-
-	static function ejecutarController($request)
-	{
-		$layout = 'site.html.php';
-		/*
-		switch ($request[2])
-		{
-			case 'error404':
-				error404();
-				break;
-		}
-		*/
-		$action = $request[2];
-		$content = $action($request); // -> error404($request);
-		return renderLayout($layout, $content);
-		
-	}
+    private $layout = 'site.html.php';
 
 	//actions
 	//************************//
-	static function index($request)
+	// Acción index
+    /*
+    function index()
 	{
-		$request[2] = "error404";
-		return self::error404($request); //llama al metodo de abajo
+        // FrontController::getInstance()->request[2] = 'error404';
+        // $action = 'error404';
+        
+        // Lo de arriba es lo mismo que:
+        $action = FrontController::getInstance()->request[2] = 'error404';
+        return $this->$action();  // return error404();
 	}
+    */
 
-
-	static function error404($request)
+    // Acción error404
+    /*
+    function error404()
 	{
-		return renderView($request[2]);
+		//return renderView($this->request[2]);
+        return renderLayout(
+            $this->layout,
+            renderView(FrontController::getInstance()->request[2])
+        );
 	}
+    */
 }

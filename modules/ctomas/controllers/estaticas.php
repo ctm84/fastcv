@@ -1,31 +1,60 @@
 <?php
-require_once("../modules/ctomas/core/renderView.php");
-require_once("../modules/ctomas/core/renderLayout.php");
+require_once('../modules/ctomas/core/FrontController.php');
 
-function ejecutarController($request)
+class Estaticas
 {
-    $layout = 'site.html.php';  // Definimos un layout para todo el controlador
-    
-	$action = $request[2];
-	$content = $action($request); // -> contacto($request); portada($request);... 
-   
-   return renderLayout($layout, $content);
+    private $layout = 'site.html.php';
+
+    //actions
+    //************************//
+    function index()
+    {
+        $action = FrontController::getInstance()->request[2] = 'portada';
+        return $this->$action();  // return portada();
+    } 
+
+    function contacto()
+    {
+        return FrontController::getInstance()->renderLayout(
+            $this->layout,
+            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
+        );
+    }
+
+    function portada()
+    {
+        //return renderView($this->request[2]);
+        /*
+        * ANTES
+        *
+        return renderLayout(
+            $this->layout,
+            renderView(FrontController::getInstance()->request[2])
+        );
+        */
+        
+        // AHORA:
+        /*
+        return FrontController::getInstance()->renderLayout(
+            $this->layout,
+            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
+        );
+        */
+        
+        return FrontController::getInstance()->renderLayout(
+            $this->layout,
+            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
+        );
+                
+        
+        /*
+        * LO MISMO
+        *
+        $fc = FrontController::getInstance();
+        return $fc->renderLayout(
+            $this->layout,
+            $fc->renderView($fc->request[2])
+        );
+        */
+    } 
 }
-
-//actions
-//************************//
-function index($request)
-{
-    $request[2] = 'portada';
-    return portada($request); 
-} 
-
-function contacto($request)
-{
-    return renderView($request[2]); // -> return renderView(contacto);
-}
-
-function portada($request)
-{
-	return renderView($request[2]);
-} 
