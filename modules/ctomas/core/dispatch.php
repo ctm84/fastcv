@@ -1,9 +1,9 @@
 <?php
-class dispatch
+class Dispatch
 {
     private $request = [];
     
-    function __construct($request) {
+    function __construct($request) { //esto se llama inyección de dependencias. 
         $this->request = $request;
     }
     
@@ -22,8 +22,9 @@ class dispatch
 		}
 		*/
 		require_once('../modules/ctomas/controllers/' . $this->request[1] . '.php');
-		return ejecutarController($this->request);
+		$controller =$this->request[1]; 
 		
+		return $controller::ejecutarController($this->request); 
 	}
     
 }

@@ -1,11 +1,14 @@
 <?php
-function getConfigDB ()
+class ConfigDB
 {
+	static function getConfigDB ()
+	{
 
-	return array(
-        'host' => "localhost",
-        'user' => "root",
-        'pass' => "",
-        'db' => "pruebaproyecto"
-    );
+		return array(
+			'host' => "localhost",
+			'user' => "root",
+			'pass' => "",
+			'db' => "pruebaproyecto"
+		);
+	}
 }

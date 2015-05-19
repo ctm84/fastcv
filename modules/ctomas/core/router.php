@@ -58,7 +58,7 @@ class Router
 		
 		if (!isset($request[1]) || $request[1]=="") {
 			$request[1] = 'index'; $request[2] = 'index';
-			return self::redireccion($request);
+			return self::redireccion($request); //el self es para nombres estaticos. Referencia a la clase actual. 
 		}
 
 		//2) Si hay valor, preguntamos si ese valor existe como controlador. Si no -> Controller=Error | Action=error404
