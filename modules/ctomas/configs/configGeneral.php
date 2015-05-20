@@ -8,5 +8,6 @@ function getConfigGeneral ()
 			'estaticas'=>array('index','contacto', 'portada'), 
 			'index'=>array('index'), 
 			'contacto'=>array('index'), 
+            'idiomas'=>array('index', 'select'),
 		);  
 }

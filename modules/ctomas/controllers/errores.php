@@ -17,7 +17,7 @@ class Errores
 	{
         return FrontController::getInstance()-> renderLayout(
             $this->layout, 
-            FrontController::getInstance()->renderView()
+            FrontController::getInstance()->renderView(null)
         );
         //renderLayout($this->layout, renderView());
 	}
