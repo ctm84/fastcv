@@ -1,24 +1,28 @@
 <?php
+require_once('../modules/ctomas/core/FrontController.php');
+require_once('../modules/ctomas/models/UsuariosMapper.php');
+
 class Usuarios
 {
-    private $request = [];
+    private $layout = 'site.html.php';
     
-    function __construct($request)
-    {
-        $this->request = $request;
-    }    
-
     //actions
     //************************//
     function index()
     {
-        $this->$request[2] = 'select';
-        return $this->select();
+        $action = FrontController::getInstance()->request[2] = 'select';
+        return $this->$action();
     }
 
     function select()
     {
-
+        $usuarios = new UsuariosMapper();
+        $datos = $usuarios->getUsuarios();
+        
+        return FrontController::getInstance()-> renderLayout(
+            $this->layout, 
+            FrontController::getInstance()->renderView($datos)
+        );
     }
 
     function delete()

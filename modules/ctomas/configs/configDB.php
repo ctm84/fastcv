@@ -3,9 +3,10 @@ function getConfigDB ()
 {
 
 		return array(
-			'host' => "localhost",
-			'user' => "root",
-			'pass' => "",
-			'db' => "pruebaproyecto"
+			'host' => 'localhost',
+			'user' => 'root',
+			'pass' => '',
+			'db' => 'pruebaproyecto',
+            'adapter' => 'MySqlAdapter'
 		);
 }

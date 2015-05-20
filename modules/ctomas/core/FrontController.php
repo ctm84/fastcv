@@ -129,10 +129,10 @@ class FrontController
         return $response;
     }
     
-    function renderView($vista)
+    function renderView($datos)
     {
         ob_start();
-        require_once("../modules/ctomas/views/".$vista.".html.php");
+        require_once("../modules/ctomas/views/" . $this->request[1] . "/" . $this->request[2] . ".html.php");
         $content = ob_get_contents();
         ob_end_clean();
         return $content;

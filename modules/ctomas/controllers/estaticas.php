@@ -17,7 +17,7 @@ class Estaticas
     {
         return FrontController::getInstance()->renderLayout(
             $this->layout,
-            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
+            FrontController::getInstance()->renderView()
         );
     }
 
@@ -25,7 +25,7 @@ class Estaticas
     {
         return FrontController::getInstance()->renderLayout(
             $this->layout,
-            FrontController::getInstance()->renderView(FrontController::getInstance()->request[2])
+            FrontController::getInstance()->renderView(null)
         );
     } 
 }
