@@ -19,12 +19,11 @@ class MySqlAdapter
         ) or die("Error " . mysqli_error($this->link));
     }
     
-    function execSQL($queryString)
+    function execSQL($queryString) //si da problemas con el delete, update o insert crear nuevo metodo. Ejemplo debajo. 
     {
         $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
-        $this->disconnect();
         $rows = [];
-        while($row = $result->fetch_array(MYSQLI_BOTH))
+        while($row = $result->fetch_array(MYSQLI_BOTH)) //both devuelve un array que es asociativo y numerico. 
         {
             $rows[] = $row;
         }
@@ -36,4 +35,26 @@ class MySqlAdapter
     {
         mysqli_close($this->link);
     }
+    
+    function __destruct()
+    {
+        $this->disconnect();
+    }
+    
+    /*
+    public function fetch($queryString)
+    {
+        $array = [];
+        $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
+        while($row = $result->fetch_array(MYSQLI_BOTH))
+            $array[]=$row;
+        }
+        return $array;
+    }
+
+    public function save($queryString)
+    {
+        return $this->link->query($queryString);
+    }
+    */
 }
