@@ -6,12 +6,11 @@
     <!-- meta -->
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <title>FastCV Contacto</title>
+    <title>FastCV Ayuda</title>
 
     <!-- css -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
     <link rel="stylesheet" href="css/site.css">
-	<link rel="stylesheet" href="css/contacto.css">
 	
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="img/core/favicon.png" type="image/png" />
@@ -82,36 +81,21 @@
 		</div>	
 
         <main>
-			<section class="module parallax parallax-1">
-                <div class="container punteado">
-                    <h1>Contacto</h1>
-                </div>
-            </section>
+			<section class="module content">
+                <div class="container">
+					<h2 class="title">Tu panel de control</h2>
+
+					<p>Hola.</p>
+				</div>
+			</section>
 			
 			<section class="module content">
                 <div class="container">
-                    <p>Fast CV ha sido desarrollado por Carlos Tomás Martínez. Si te interesa contactar conmigo puedes utilizar el formulario o enviarme directamente un correo a <a href="mailto:ctmdesarollo@gmail.com"> ctmdesarollo@gmail.com</a>.</p> 
-					<p>Puedes encontrar otros trabajos en mi <a href=" http://ctmportfolio.esy.es/ ">portfolio</a> y en mi <a href=" https://github.com/ctm84">Github</a>.</p>
-                </div>
-            </section>
-		
-            <section class="module content">
-                <div class="container">
-                    <h2 class="title">Contacto</h2>
-                    <form name="contacto" class="form">
-						<label for="nombre">Nombre</label>
-						<input type="text" name="nombre" id="nombre"/>
-						<label for="correo">Correo</label>
-						<input type="text" name="correo" />
-						<label for="asunto">Asunto</label>
-						<input type="text" name="asunto" />
-						<label for="mensaje">Mensaje</label>
-						<textarea name="mensaje"> </textarea>
-						<input class="buttom" type="submit" id="submit-contacto" name="submit" value="Enviar" />
-					</form>
+					<h2 class="title">Crear un currículum</h2>
+
+					<p>Hola.</p>
 				</div>
 			</section>
-		
 		</main>
 		
 		<footer>

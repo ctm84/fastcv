@@ -1,0 +1,92 @@
+/*Parallax*/
+section.module.parallax-1 {
+    background-image: url("../img/formulario/cabeceras/datos.jpg");
+}
+
+section.module.parallax-2 {
+    background-image: url("../img/formulario/cabeceras/experiencia.jpg");
+}
+
+section.module.parallax-3 {
+    background-image: url("../img/formulario/cabeceras/formacion.jpg");
+}
+
+section.module.parallax-4 {
+    background-image: url("../img/formulario/cabeceras/idiomas.jpg");
+}
+
+section.module.parallax-5 {
+    background-image: url("../img/formulario/cabeceras/capacidades.jpg");
+}
+
+
+/*Navbar*/
+.info-bar {
+    background-color: #fff;
+    opacity: 0.4;
+    padding: 5px 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    transition-duration: 0.5s;
+    border-bottom: 1px solid #dedede;
+    top: 0px;
+}
+
+.info-bar:hover {
+    opacity: 1;
+}
+
+.info-bar a.icon {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/core/icons-dark.png"), none;
+    opacity: 0.3;
+}
+
+.info-bar .cmn-home {
+    background-position: 0 0;
+}
+
+.info-bar .cmn-datos {
+    background-position: -30px 0;
+}
+
+.info-bar .cmn-experiencia {
+    background-position: -60px 0;
+}
+
+.info-bar .cmn-formacion {
+    background-position: -90px 0;
+}
+
+.info-bar .cmn-idiomas {
+    background-position: -120px 0;
+}
+
+.info-bar .cmn-capacidades {
+    background-position: -150px 0;
+}
+
+.info-bar .cmn-previa {
+    background-position: -180px 0;
+}
+
+.info-bar a.icon[data-title]:hover:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20px;
+    content: attr(data-title);
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 12px;
+    white-space: nowrap;
+}

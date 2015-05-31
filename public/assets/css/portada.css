@@ -1,0 +1,121 @@
+/*Parallax*/
+section.module.parallax-1 {
+  background-image: url("../img/portada/cvtable.png");
+}
+
+.punteado{
+	background:transparent url(../img/core/cubrir.png) repeat top left;
+	max-width: 100%;
+}
+
+
+/*logo*/
+#logofastcv{
+	background-image:url("../img/core/fastcv.png");
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size: 80%;
+	width: 40%;
+	height: 150px;
+	display:block;
+	float: left;
+	max-width: 180px;
+}
+
+
+/*Slideshow*/
+#slideshow{
+	padding-top: 20px;
+	padding-left: 50px;
+}
+
+#im2, #im3{
+	display: none;
+}
+
+#nav_carousel{
+	padding-left: 50px;
+} 
+
+#nav_carousel li{
+	/*list-style: circle;*/
+	float: left;
+	padding-right: 30px;
+} 
+
+#im1 .container{
+ background-image: url("../img/portada/porta1.png");
+}
+
+#im2 .container{
+ background-image: url("../img/portada/porta2.png");
+}
+
+#im3 .container{
+ background-image: url("../img/portada/porta3.png");
+}
+
+#slideshow ul li .container{
+  height: 600px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+}
+
+#slideshow ul li h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 40px;
+  line-height: 100px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  padding-top: 59.5%;
+  -webkit-text-stroke: 1px #AAAAAA;
+  -moz-text-stroke: 1px #AAAAAA;
+  text-stroke: 1px #AAAAAA;
+} 
+
+#slideshow .punteado{
+	width: 100%;
+	height: 100%;
+}
+
+/*media*/
+@media all and (max-width: 320px) {
+  #slideshow ul li div h1 {
+	font-size: 29px; 
+  }
+}
+
+@media all and (max-width: 280px) {
+  #logofastcv{
+	display: none;
+  }
+  
+   #slideshow ul li div h1 {
+	font-size: 18px;
+  }
+}  
+
+@media all and (min-width: 400px) {
+  #logofastcv{
+	width: 35%;
+  }
+}  
+
+@media all and (min-width: 450px) {
+  #logofastcv{
+	width: 30%;
+  }
+}  
+
+@media all and (min-width: 600px) {
+  #logofastcv{
+	width: 25%;
+  }
+}

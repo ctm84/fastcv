@@ -24,11 +24,9 @@ class FrontController
     
     function getRequest()
 	{
-		/*$config = array ('usuarios'=>array('index','insert', 'select', 'update', 'delete'), 'error'=>array('error404'), 'index'=>array('index'), 'static'=>array('contacto', 'portada') );*/
 		$parameters = array();
 		$parametersRequest = array();
-		
-		
+				
 		/* ********* URI **************************************** */
 		//1) Guardamos la URI en una variable.
 		$uri=$_SERVER['REQUEST_URI']; //guarda la URI. Ejemplo: http://miweb.com/index.html -> /index.html
@@ -75,7 +73,7 @@ class FrontController
 			$request[1] = 'index'; $request[2] = 'index';
 		}
 
-		//2) Si hay valor, preguntamos si ese valor existe como controlador. Si no -> Controller=Error | Action=error404
+		//2) Si hay valor, preguntamos si ese valor existe como controlador. Si no -> Controller=errores | Action=error404
 		if(array_key_exists($request[1], $this->config)){
 			
 			//3) Si controller existe, preguntamos si nos ha escrito un action. Si no -> controller=elquehayaescrito | action=index 
@@ -97,13 +95,13 @@ class FrontController
 
 	function redireccion($request)
 	{
-		// de /index/index ->  /static/portada
+		// de /index/index ->  /estaticas/portada
 		if ($request[1] == 'index' && $request[2] == 'index') {
 			$request[1] = 'estaticas';
 			$request[2] = 'portada';
 		} 
 		
-		//de /contacto/index -> /static/contacto
+		//de /contacto/index -> /estaticas/contacto
 		 if ($request[1] == 'contacto' && $request[2] == 'index') {
 			$request[1] = 'estaticas';
 			$request[2] = 'contacto';
