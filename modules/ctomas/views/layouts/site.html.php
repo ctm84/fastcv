@@ -10,10 +10,10 @@
 
     <!-- css -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
-    <link rel="stylesheet" href="../../../../public/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
 	
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="img/core/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="/assets/img/core/favicon.png" type="image/png" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 		<header>
             <div class="container">
 				<div class="logo">
-					<a id="logo-header" href="#">Fast CV</a>
+					<a id="logo-header" href="index">Fast CV</a>
 				</div>
                 <div class="sesion">
                     <small>Bienvenido Nombre</small>
@@ -52,9 +52,9 @@
 			
 			<div class="container">
 				<div class="contact-privacy">
-					<small><a href="#">Contacto</a></small>
+					<small><a href="contacto">Contacto</a></small>
 					<small>|</small>
-					<small><a href="#">Términos legales</a></small>
+					<small><a href="legal">Términos legales</a></small>
 				</div>
             </div>
         </footer>
