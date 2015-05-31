@@ -10,7 +10,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
-    <link rel="stylesheet" href="../../../../public/assets/css/site.css"
+    <link rel="stylesheet" href="../../../../public/assets/css/site.css">
 	
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="img/core/favicon.png" type="image/png" />
