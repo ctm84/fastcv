@@ -5,6 +5,8 @@ function getConfigGeneral ()
 		return  array (
 			'usuarios'=>array('index','insert', 'select', 'update', 'delete'), 
             
+            'curriculums'=>array('index','insert', 'select', 'update', 'delete'), 
+            
             'idiomas'=>array('index', 'select'), //controller de prueba
             
 			'errores'=>array('index','error404','error403'), //403 pendiente
