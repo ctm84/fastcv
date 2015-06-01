@@ -14,7 +14,7 @@
                 <div class="container">
                     <h1>Error 404</h1>
                     <h2>Página no encontrada</h2>
-                    <a href="index" title="Volver al sitio" class="error-back">Volver</a>
+                    <a href="http://miweb.local/index" title="Volver al sitio" class="error-back">Volver</a>
                 </div>
             </section>
         </main>

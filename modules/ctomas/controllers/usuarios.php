@@ -27,7 +27,14 @@ class Usuarios
 
     function delete()
     {
-
+        $usuarios = new UsuariosMapper();
+        $usuarios->borrarUsuario(); 
+        
+        $datos = $usuarios->getUsuarios();
+        return FrontController::getInstance()-> renderLayout(
+            $this->layout, 
+            FrontController::getInstance()->renderView($datos)
+        );
     }
 
     function update()

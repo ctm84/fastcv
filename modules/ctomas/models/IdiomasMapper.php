@@ -12,4 +12,10 @@ class IdiomasMapper
         // pido que el adaptador ejecute la consulta
         return $adapter->execSQL('SELECT * FROM IDIOMAS');
     }
+    
+    function deleIdioma()
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter(); 
+    }
 }
