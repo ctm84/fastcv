@@ -73,16 +73,16 @@
             <section class="module content">
                 <div class="container">
                     <h2 class="title">Contacto</h2>
-                    <form name="contacto" class="form">
+                    <form name="contacto" class="form" method="post" action="/assets/other/contacto.php" accept-charset="utf-8">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" />
+                        <input type="text" name="nombre" id="nombre" required />
                         <label for="correo">Correo</label>
-                        <input type="text" name="correo" />
+                        <input type="email" name="correo" id="correo" required />
                         <label for="asunto">Asunto</label>
-                        <input type="text" name="asunto" />
+                        <input type="text" name="asunto" id="asunto" required />
                         <label for="mensaje">Mensaje</label>
-                        <textarea name="mensaje"> </textarea>
-                        <input class="buttom" type="submit" id="submit-contacto" name="submit" value="Enviar" />
+                        <textarea name="mensaje" id="mensaje" minlength=20 required></textarea>
+                        <input class="buttom" type="submit" id="submit-contacto" name="submit" value="Enviar"/>
                     </form>
                 </div>
             </section>
@@ -93,7 +93,6 @@
 
     <!-- js -->
     <script src="http://code.jquery.com/jquery-1.9.0.min.js" type="text/javascript"></script>
-    <script src="/assets/js/modernizer.js"></script>
     <script src="/assets/js/navbarauxiliar.js"></script>
 
 </body>

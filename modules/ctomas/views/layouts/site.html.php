@@ -55,6 +55,8 @@
 					<small><a href="contacto">Contacto</a></small>
 					<small>|</small>
 					<small><a href="legal">Términos legales</a></small>
+                    <small>|</small>
+                    <small><a href="ayuda">Ayuda</a></small>
 				</div>
             </div>
         </footer>
