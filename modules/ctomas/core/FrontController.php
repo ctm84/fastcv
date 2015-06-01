@@ -106,6 +106,16 @@ class FrontController
 			$request[1] = 'estaticas';
 			$request[2] = 'contacto';
 		}
+        //de /legal/index -> /estaticas/legal
+		 if ($request[1] == 'legal' && $request[2] == 'index') {
+			$request[1] = 'estaticas';
+			$request[2] = 'legal';
+		}
+        //de /legal/index -> /estaticas/legal
+		 if ($request[1] == 'ayuda' && $request[2] == 'index') {
+			$request[1] = 'estaticas';
+			$request[2] = 'ayuda';
+		}
 		return $request;
 	}
     

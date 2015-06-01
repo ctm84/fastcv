@@ -4,10 +4,16 @@ function getConfigGeneral ()
 		//array controllers   
 		return  array (
 			'usuarios'=>array('index','insert', 'select', 'update', 'delete'), 
-			'errores'=>array('index','error404'), 
-			'estaticas'=>array('index','contacto', 'portada'), 
-			'index'=>array('index'), 
-			'contacto'=>array('index'), 
-            'idiomas'=>array('index', 'select'),
+            
+            'idiomas'=>array('index', 'select'), //controller de prueba
+            
+			'errores'=>array('index','error404','error403'), //403 pendiente
+            
+			'estaticas'=>array('index','contacto', 'portada', 'legal', 'ayuda'), 
+            
+            'index'=>array('index'), 
+            'contacto'=>array('index'), 
+            'legal'=>array('index'), 
+            'ayuda'=>array('index'),
 		);  
 }

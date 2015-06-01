@@ -3,14 +3,6 @@
 <html lang="es">
 
 <head>
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <title>FastCV Home</title>
-
-    <!-- css -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
-    <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/portada.css">
 </head>
 

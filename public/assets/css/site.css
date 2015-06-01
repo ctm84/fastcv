@@ -649,6 +649,7 @@ nav#nav-mobile a:hover {
 @media all and (max-width: 900px) {
     #nav-trigger {
         display: block;
+        background-color: #2f2f2f; 
     }
     nav#nav-main {
         display: none;

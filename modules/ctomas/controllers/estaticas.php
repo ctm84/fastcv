@@ -28,4 +28,20 @@ class Estaticas
             FrontController::getInstance()->renderView(null)
         );
     } 
+    
+    function legal()
+    {
+        return FrontController::getInstance()->renderLayout(
+            $this->layout,
+            FrontController::getInstance()->renderView(null)
+        );
+    }
+    
+    function ayuda()
+    {
+        return FrontController::getInstance()->renderLayout(
+            $this->layout,
+            FrontController::getInstance()->renderView(null)
+        );
+    } 
 }

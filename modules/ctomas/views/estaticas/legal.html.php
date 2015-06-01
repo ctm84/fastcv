@@ -3,40 +3,10 @@
 <html lang="es">
 
 <head>
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <title>FastCV Términos legales</title>
-
-    <!-- css -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
-    <link rel="stylesheet" href="css/site.css">
-	
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="img/core/favicon.png" type="image/png" />
 </head>
 
 <body>
     <div class="wrapper">
-       <header>
-            <div class="container">
-				<div class="logo">
-					<img src="img/core/fastcompact.png">
-				</div>
-                <div class="sesion">
-                    <small>Bienvenido Nombre</small>
-                    <small>
-				        <ul>
-				            <li>
-								<img src="img/core/sesion.png">
-								<a href="#">Cerrar Sesion</a>
-							</li>
-				        </ul>
-				    </small>
-                </div>
-            </div>
-        </header>
-		
 		<nav>
 			<ul id="navigationMenu">
 				<li>
@@ -125,8 +95,8 @@
 					 de este portal y con carácter enunciativo pero no limitativo, a no emplearlos para (i) incurrir en 
 					 actividades ilícitas, ilegales o contrarias a la buena fe y al orden público; (ii) difundir contenidos
 					 o propaganda de carácter racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o atentatorio 
-					 contra los derechos humanos; (iii) provocar daños en los sistemas físicos y lógicos de Nombre de la empresa 
-					 creadora del sitio web , de sus proveedores o de terceras personas, introducir o difundir en la red virus 
+					 contra los derechos humanos; (iii) provocar daños en los sistemas físicos y lógicos del autor
+					 del sitio web , de sus proveedores o de terceras personas, introducir o difundir en la red virus 
 					 informáticos o cualesquiera otros sistemas físicos o lógicos que sean susceptibles de provocar los daños 
 					 anteriormente mencionados; (iv) intentar acceder y, en su caso, utilizar las cuentas de correo electrónico 
 					 de otros usuarios y modificar o manipular sus mensajes. El autor  del sitio web se reserva el derecho de retirar 
@@ -136,8 +106,8 @@
 					 el autor del sitio web no será responsable de las opiniones vertidas por los usuarios a través de los foros, 
 					 chats, u otras herramientas de participación.</p>
 
-					<p><strong>EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD:</strong> Nombre de
-					la empresa creadora del sitio web. no se hace responsable, en
+					<p><strong>EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD:</strong> 
+                    El autor del sitio web. no se hace responsable, en
 					ningún caso, de los daños y perjuicios de cualquier naturaleza que
 					pudieran ocasionar, a título enunciativo: errores u omisiones en los
 					contenidos, falta de disponibilidad del portal o la transmisión de virus
@@ -194,11 +164,23 @@
 			
 			<section class="module content">
                 <div class="container">	
-					<h2 class="title">Sobre las imágenes utilizadas</h2>
-					<p>A excepción del logo de Fast CV todas las imágenes utilizadas en la web han sido extraídas de 
-					<a href="http://www.freepik.com/">freepik</a>, <a href="http://pixabay.com/es/">pixabay</a> y
-                    <a href="http://www.vecteezy.com/">vecteezy</a>, aplicando en algunos casos modificaciones.</p>
-					<p>El logo ha sido diseñado por <a href="http://karmatrix.deviantart.com/">Eva Contreras</a>.</p>
+					<h2 class="title">Sobre las imágenes y otros elementos licenciatarios</h2>
+					<p>
+                        A excepción del logo de Fast CV todas las imágenes utilizadas en la web han sido extraídas de 
+					   <a href="http://www.freepik.com/">freepik</a>, <a href="http://pixabay.com/es/">pixabay</a> y
+                        <a href="http://www.vecteezy.com/">vecteezy</a>, aplicando en algunos casos modificaciones.
+                    </p>
+					<p>
+                        El logo ha sido expresamente diseñado por <a href="http://karmatrix.deviantart.com/">Eva Contreras</a>.
+                    </p>
+                    <p>
+                        El diseño de las secciones con parallax está basado en la plantilla de 
+                        <a href="http://callmenick.com/post/simple-parallax-scrolling-effect">Callmenick</a>.
+                    </p>
+                    <p>
+                        La barra de navegación que puede verse desde dispositivos de pantalla ancha está basada en el
+                        tutoríal de <a href="http://tutorialzine.com/2010/06/css3-minimalistic-navigation-menu/">Tutorialzine</a>. 
+                    </p>
 				</div>
 			</section>
 			
@@ -218,17 +200,16 @@
 					distribución  y  la  comunicación  pública,  incluida  su  modalidad  de 
 					puesta a disposición, de la totalidad o parte de los contenidos de esta 
 					página  web,  con  fines  comerciales,  en  cualquier  soporte  y  por 
-					cualquier  medio  técnico,  sin  la  autorización  de  Nombre  de  la 
-					empresa  creadora  del  sitio  web  .  El  USUARIO  se  compromete  a 
+					cualquier  medio  técnico,  sin  la  autorización  del autor del  sitio  web.  
+                    El  USUARIO  se  compromete  a 
 					respetar los derechos de Propiedad Intelectual e Industrial titularidad 
-					de  Nombre  de  la  empresa  creadora  del  sitio  web.  Podrá 
+					de el autor  del  sitio  web.  Podrá 
 					visualizar  los  elementos  del  portal  e  incluso  imprimirlos,  copiarlos  y 
 					almacenarlos  en  el  disco  duro  de  su  ordenador  o  en  cualquier  otro 
 					soporte físico siempre y cuando sea, única y exclusivamente, para su 
 					uso personal y privado. El USUARIO deberá abstenerse de suprimir, 
 					alterar,  eludir  o  manipular  cualquier  dispositivo  de  protección  o 
-					sistema  de  seguridad  que  estuviera  instalado  en  el  las  páginas  de 
-					Nombre de la empresa creadora del sitio web.  	
+					sistema  de  seguridad  que  estuviera  instalado  en  el sitio web.  	
 					</p>
 					<p>
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Fast CV</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ctmportfolio.esy.es/" property="cc:attributionName" rel="cc:attributionURL">Carlos Tomás Martínez</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional License</a>.
@@ -236,30 +217,12 @@
 				</div>
 			</section>
 		</main>
-		
-		<footer>
-			<div class="container">
-				<div class="copyright">
-					<small>FastCV  &copy; 2015</small> 
-				</div>
-			</div>
-			
-			<div class="container">
-				<div class="contact-privacy">
-					<small><a href="#">Contacto</a></small>
-					<small>|</small>
-					<small><a href="#">Términos legales</a></small>
-				</div>
-			</div>
-		</footer>
-		
     </div>
 	<!-- /#wrapper -->
 
     <!-- js -->
     <script src="http://code.jquery.com/jquery-1.9.0.min.js" type="text/javascript"></script>
-	<script src="js/modernizer.js"></script>
-	<script src="js/navbarauxiliar.js"></script>
+	<script src="/assets/js/navbarauxiliar.js"></script>
     
 </body>
 
