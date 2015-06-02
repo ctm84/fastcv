@@ -16,9 +16,9 @@ class Usuarios
 
     function select()
     {
-        $id = FrontController::getInstance()->request[3]["id"];
         
-        if(!isset($id) || $id==""){
+        
+        if(!isset(FrontController::getInstance()->request[3]["id"]) || FrontController::getInstance()->request[3]["id"]==""){
             $usuarios = new UsuariosMapper();
             $datos = $usuarios->getUsuarios();
 
@@ -28,7 +28,7 @@ class Usuarios
             );
         }else{
             $usuario = new UsuariosMapper();
-            $datos = $usuario->getUsuario($id);
+            $datos = $usuario->getUsuario(FrontController::getInstance()->request[3]["id"]);
             
             return FrontController::getInstance()-> renderLayout(
                 $this->layout, 
