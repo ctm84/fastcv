@@ -16,13 +16,25 @@ class Usuarios
 
     function select()
     {
-        $usuarios = new UsuariosMapper();
-        $datos = $usuarios->getUsuarios();
+        $id = FrontController::getInstance()->request[3]["id"];
         
-        return FrontController::getInstance()-> renderLayout(
-            $this->layout, 
-            FrontController::getInstance()->renderView($datos)
-        );
+        if(!isset($id) || $id==""){
+            $usuarios = new UsuariosMapper();
+            $datos = $usuarios->getUsuarios();
+
+            return FrontController::getInstance()-> renderLayout(
+                $this->layout, 
+                FrontController::getInstance()->renderView($datos)
+            );
+        }else{
+            $usuario = new UsuariosMapper();
+            $datos = $usuario->getUsuario($id);
+            
+            return FrontController::getInstance()-> renderLayout(
+                $this->layout, 
+                FrontController::getInstance()->renderView($datos)
+            );
+        }
     }
 
     function delete()
