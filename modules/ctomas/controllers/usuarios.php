@@ -61,5 +61,13 @@ class Usuarios
     function update()
     {
 
-    } 
+    }
+    
+    function login()
+    {
+        return FrontController::getInstance()-> renderLayout(
+            $this->layout, 
+            FrontController::getInstance()->renderView(null)
+        );
+    }
 }
