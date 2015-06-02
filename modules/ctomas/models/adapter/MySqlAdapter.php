@@ -31,6 +31,11 @@ class MySqlAdapter
         return $rows;
     }
     
+     function deleteSQL($queryString) 
+    {
+        $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
+    }
+    
     function disconnect()
     {
         mysqli_close($this->link);
@@ -56,5 +61,5 @@ class MySqlAdapter
     {
         return $this->link->query($queryString);
     }
-    */
+    */    
 }

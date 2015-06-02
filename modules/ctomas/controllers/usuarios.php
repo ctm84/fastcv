@@ -28,14 +28,11 @@ class Usuarios
     function delete()
     {
         $usuarios = new UsuariosMapper();
-        $id = FrontController::getInstance()->request[3]; //sacar el value de id=3 
+        $id = FrontController::getInstance()->request[3]["id"]; //sacar el value de id=3 
         $usuarios->borrarUsuario($id); 
         
-        $datos = $usuarios->getUsuarios();
-        return FrontController::getInstance()-> renderLayout(
-            $this->layout, 
-            FrontController::getInstance()->renderView($datos)
-        );
+        $action = FrontController::getInstance()->request[2] = 'select';
+        return $this->$action();
     }
 
     function update()
