@@ -40,10 +40,10 @@ class Usuarios
     function delete()
     {
         $usuarios = new UsuariosMapper();
-        $id = FrontController::getInstance()->request[3]["id"]; //sacar el value de id=3 
-        $usuarios->borrarUsuario($id); 
+        $usuarios->borrarUsuario(FrontController::getInstance()->request[3]["id"]); // usuarios->borrarUsuario(id del user)
         
         $action = FrontController::getInstance()->request[2] = 'select';
+        FrontController::getInstance()->request[3] = '';
         return $this->$action();
     }
 
