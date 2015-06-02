@@ -17,7 +17,6 @@ class Usuarios
     function select()
     {
         
-        
         if(!isset(FrontController::getInstance()->request[3]["id"]) || FrontController::getInstance()->request[3]["id"]==""){
             $usuarios = new UsuariosMapper();
             $datos = $usuarios->getUsuarios();
@@ -42,9 +41,21 @@ class Usuarios
         $usuarios = new UsuariosMapper();
         $usuarios->borrarUsuario(FrontController::getInstance()->request[3]["id"]); // usuarios->borrarUsuario(id del user)
         
-        $action = FrontController::getInstance()->request[2] = 'select';
-        FrontController::getInstance()->request[3] = '';
-        return $this->$action();
+        $action = FrontController::getInstance()->request[2] = 'select'; //cambio el action por select
+        FrontController::getInstance()->request[3] = ''; //borro los arguments
+        return $this->$action(); //devuelvo un select() 
+    }
+    
+    function insert()
+    {
+        $usuario = new UsuariosMapper();
+        $id =9; 
+        $correo="uno@mail.com"; 
+        $usuario->insertUsuario($id, $correo);
+        
+        $action = FrontController::getInstance()->request[2] = 'select'; 
+        FrontController::getInstance()->request[3] = ''; 
+        return $this->$action(); 
     }
 
     function update()

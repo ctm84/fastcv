@@ -31,7 +31,7 @@ class MySqlAdapter
         return $rows;
     }
     
-     function deleteSQL($queryString) 
+     function emptyexecSQL($queryString) 
     {
         $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
     }
@@ -46,12 +46,12 @@ class MySqlAdapter
         $this->disconnect();
     }
     
-    /*
+/*
     public function fetch($queryString)
     {
         $array = [];
         $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
-        while($row = $result->fetch_array(MYSQLI_BOTH))
+        while($row = $result->fetch_array(MYSQLI_BOTH)){
             $array[]=$row;
         }
         return $array;
@@ -61,5 +61,5 @@ class MySqlAdapter
     {
         return $this->link->query($queryString);
     }
-    */    
+*/       
 }

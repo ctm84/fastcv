@@ -18,8 +18,8 @@ class UsuariosMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        //para borrar uso deleteSQL 
-        return $adapter->deleteSQL('DELETE FROM USUARIOS WHERE ID =' .$id); 
+        //para query sin respuesta uso emptyexecSQL
+        return $adapter->emptyexecSQL('DELETE FROM USUARIOS WHERE ID =' .$id); 
     }
     
     function getUsuario($id)
@@ -28,5 +28,13 @@ class UsuariosMapper
         $adapter = new $configAdapter();  
         
         return $adapter->execSQL('SELECT * FROM USUARIOS WHERE ID =' .$id);
+    }
+    
+    function insertUsuario($id, $correo)
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter(); 
+        
+        return $adapter->emptyexecSQL('INSERT INTO USUARIOS(ID, CORREO) VALUES("'.$id.'","'.$correo.'")');
     }
 }
