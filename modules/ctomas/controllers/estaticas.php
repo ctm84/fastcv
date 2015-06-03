@@ -1,5 +1,6 @@
 <?php
 require_once('../modules/ctomas/core/FrontController.php');
+require_once('../modules/ctomas/models/ContactoMapper.php');
 
 class Estaticas
 {
@@ -17,11 +18,17 @@ class Estaticas
 
     function contacto()
     {
-        return FrontController::getInstance()->renderLayoutNavbars(
-            $this->layoutnav,
-            FrontController::getInstance()->renderNavbars( $this->navbars),
-            FrontController::getInstance()->renderView(null)
-        );
+        if($_POST){
+            $mensaje = new ContactoMapper();
+            return $mensaje->sendMensaje();
+                
+        }else{
+            return FrontController::getInstance()->renderLayoutNavbars(
+                $this->layoutnav,
+                FrontController::getInstance()->renderNavbars( $this->navbars),
+                FrontController::getInstance()->renderView(null)
+            );
+        }
     }
 
     function portada()

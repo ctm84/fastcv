@@ -24,7 +24,7 @@
         <section class="module content">
             <div class="container">
                 <h2 class="title">Contacto</h2>
-                <form name="contacto" class="form" method="post" action="/assets/other/contacto.php" accept-charset="utf-8">
+                <form name="contacto" class="form" method="post" accept-charset="utf-8">
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" required />
                     <label for="correo">Correo</label>

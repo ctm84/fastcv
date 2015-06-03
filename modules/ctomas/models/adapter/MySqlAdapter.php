@@ -16,12 +16,12 @@ class MySqlAdapter
             FrontController::getInstance()->config['user'],
             FrontController::getInstance()->config['pass'],
             FrontController::getInstance()->config['db']
-        ) or die("Error " . mysqli_error($this->link));
+        ) or die("Error en la conexion" . mysqli_error($this->link));
     }
     
     function execSQL($queryString) //si da problemas con el delete, update o insert crear nuevo metodo. Ejemplo debajo. 
     {
-        $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
+        $result = $this->link->query($queryString) or die("Error en la consulta." . mysqli_error($this->link));
         $rows = [];
         while($row = $result->fetch_array(MYSQLI_BOTH)) //both devuelve un array que es asociativo y numerico. 
         {
@@ -33,7 +33,7 @@ class MySqlAdapter
     
      function emptyexecSQL($queryString) 
     {
-        $result = $this->link->query($queryString) or die("Error in the consult.." . mysqli_error($this->link));
+        $result = $this->link->query($queryString) or die("Error en la consulta." . mysqli_error($this->link));
     }
     
     function disconnect()
