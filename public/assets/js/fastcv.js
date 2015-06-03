@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 //Registro, confirmar contraseña
 $(document).ready(function() {
-	$("#imppassconfirm").blur(function(event){
+	$("#passconfirm").blur(function(event){
 		if(signup.password_confirm.value != signup.password.value) {
 			alert("Las contraseñas no coinciden");
 			return;

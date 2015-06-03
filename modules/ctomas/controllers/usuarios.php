@@ -5,6 +5,8 @@ require_once('../modules/ctomas/models/UsuariosMapper.php');
 class Usuarios
 {
     private $layout = 'site.html.php';
+    private $layoutnav = 'sitenav.html.php';
+    private $navbars = 'navbars.html.php';
     
     //actions
     //************************//
@@ -48,26 +50,21 @@ class Usuarios
     
     function insert()
     {
-        $usuario = new UsuariosMapper();
-        $id =9; 
-        $correo="uno@mail.com"; 
-        $usuario->insertUsuario($id, $correo);
-        
-        $action = FrontController::getInstance()->request[2] = 'select'; 
-        FrontController::getInstance()->request[3] = ''; 
-        return $this->$action(); 
+        if($_POST){
+            header('Location: http://miweb.local/index');
+            
+            $usuario = new UsuariosMapper();
+            return $usuario->insertUsuario();
+        }else{
+            return FrontController::getInstance()-> renderLayout(
+                $this->layout, 
+                FrontController::getInstance()->renderView(null)
+            );
+        }
     }
 
     function update()
     {
 
-    }
-    
-    function login()
-    {
-        return FrontController::getInstance()-> renderLayout(
-            $this->layout, 
-            FrontController::getInstance()->renderView(null)
-        );
     }
 }
