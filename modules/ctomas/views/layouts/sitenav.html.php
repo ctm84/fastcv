@@ -38,7 +38,7 @@
                 </div>
             </div>
         </header>
-		
+            <?= $navbars ?>        
 		<main>
 			<?= $content ?>
         </main>
@@ -62,8 +62,9 @@
         </footer>
     </div>
     
-    <!-- js -->
+     <!-- js -->
     <script src="/assets/vendor/jquery-1.9.1.min.js"></script>
+    <script src="/assets/js/navbarauxiliar.js"></script>
     <script src="/assets/js/fastcv.js"></script>
     
 </body>

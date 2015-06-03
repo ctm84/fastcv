@@ -146,4 +146,22 @@ class FrontController
         return $content;
     }
     
+    function renderNavbars($navbars)
+    {
+        ob_start();
+        require_once("../modules/ctomas/views/layouts/".$navbars);
+        $response = ob_get_contents();
+        ob_end_clean();
+        return $response;
+    }
+    
+    function renderLayoutNavbars ($layoutnav, $navbars, $content)
+    {
+        ob_start();
+        require_once("../modules/ctomas/views/layouts/".$layoutnav);
+        $response = ob_get_contents();
+        ob_end_clean();
+        return $response;
+    }
+    
 }

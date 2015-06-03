@@ -5,6 +5,8 @@ require_once('../modules/ctomas/models/CurriculumsMapper.php');
 class Curriculums
 {
     private $layout = 'site.html.php';
+    private $layoutnav = 'sitenav.html.php';
+    private $navbars = 'navbars.html.php';
     
     //actions
     //************************//
@@ -19,8 +21,9 @@ class Curriculums
         $curriculums = new CurriculumsMapper();
         $datos = $curriculums->getCurriculums();
         
-        return FrontController::getInstance()-> renderLayout(
-            $this->layout, 
+        return FrontController::getInstance()->renderLayoutNavbars(
+            $this->layoutnav,
+            FrontController::getInstance()->renderNavbars( $this->navbars),
             FrontController::getInstance()->renderView($datos)
         );
     }

@@ -4,6 +4,8 @@ require_once('../modules/ctomas/core/FrontController.php');
 class Estaticas
 {
     private $layout = 'site.html.php';
+    private $layoutnav = 'sitenav.html.php';
+    private $navbars = 'navbars.html.php';
 
     //actions
     //************************//
@@ -15,8 +17,9 @@ class Estaticas
 
     function contacto()
     {
-        return FrontController::getInstance()->renderLayout(
-            $this->layout,
+        return FrontController::getInstance()->renderLayoutNavbars(
+            $this->layoutnav,
+            FrontController::getInstance()->renderNavbars( $this->navbars),
             FrontController::getInstance()->renderView(null)
         );
     }
@@ -31,17 +34,19 @@ class Estaticas
     
     function legal()
     {
-        return FrontController::getInstance()->renderLayout(
-            $this->layout,
+        return FrontController::getInstance()->renderLayoutNavbars(
+            $this->layoutnav,
+            FrontController::getInstance()->renderNavbars( $this->navbars),
             FrontController::getInstance()->renderView(null)
         );
     }
     
     function ayuda()
     {
-        return FrontController::getInstance()->renderLayout(
-            $this->layout,
+        return FrontController::getInstance()->renderLayoutNavbars(
+            $this->layoutnav,
+            FrontController::getInstance()->renderNavbars( $this->navbars),
             FrontController::getInstance()->renderView(null)
         );
-    } 
+    }
 }

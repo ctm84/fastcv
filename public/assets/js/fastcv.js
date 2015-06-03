@@ -1,3 +1,21 @@
+//ListarCV, mostrar-ocultar div
+$(document).ready(function() {
+			$("#nuevocv").click(function(event) {
+				$("#nuevocvform").slideToggle();
+			});
+});
+
+//Registro, confirmar contraseña
+$(document).ready(function() {
+	$("#imppassconfirm").blur(function(event){
+		if(signup.password_confirm.value != signup.password.value) {
+			alert("Las contraseñas no coinciden");
+			return;
+		}
+	});
+});	
+
+//Portada, slider
 var carousel = (function(){
     var $elements     = $('#slideshow').find('li'),
         pid           = 0,
