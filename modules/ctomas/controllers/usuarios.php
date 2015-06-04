@@ -56,8 +56,9 @@ class Usuarios
             $usuario = new UsuariosMapper();
             return $usuario->insertUsuario();
         }else{
-            return FrontController::getInstance()-> renderLayout(
-                $this->layout, 
+            return FrontController::getInstance()->renderLayoutNavbars(
+                $this->layoutnav,
+                FrontController::getInstance()->renderNavbars( $this->navbars),
                 FrontController::getInstance()->renderView(null)
             );
         }

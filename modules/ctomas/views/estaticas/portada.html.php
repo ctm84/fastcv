@@ -19,7 +19,9 @@
             <div class="container">
                 <h2 class="title">Tu generador de currículums online</h2>
                 <span id="logofastcv"></span>
-                <p>Con Fast CV puedes crear tus currículums de manera rápida y sencilla para mostrarlos online o descargarlos en formato pdf. Es una herramienta completamente gratuita, tan solo es necesario <a href="#">registrarse</a> como usuario. </p>
+                <p>Con Fast CV puedes crear tus currículums de manera rápida y sencilla para mostrarlos online o descargarlos en formato pdf. 
+                    Es una herramienta completamente gratuita, tan solo es necesario <a href="http://miweb.local/usuarios/insert">registrarse</a> 
+                    como usuario. </p>
             </div>
         </section>
 
