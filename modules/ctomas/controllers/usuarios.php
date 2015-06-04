@@ -45,14 +45,16 @@ class Usuarios
         
         $action = FrontController::getInstance()->request[2] = 'select'; //cambio el action por select
         FrontController::getInstance()->request[3] = ''; //borro los arguments
+        
         return $this->$action(); //devuelvo un select() 
     }
     
     function insert()
     {
         if($_POST){
-            header('Location: /index');
+            header('Location: /index'); //redirigir a la portada
             $usuario = new UsuariosMapper();
+            
             return $usuario->insertUsuario();
         }else{
             return FrontController::getInstance()->renderLayoutNavbars(
@@ -65,6 +67,19 @@ class Usuarios
 
     function update()
     {
-
+        if($_POST){
+             header('Location: /usuarios');
+             $usuario = new UsuariosMapper();
+            
+             return $usuario->updateUsuario();
+        }else{
+             $usuario = new UsuariosMapper();
+             $datos = $usuario->getUsuario(FrontController::getInstance()->request[3]["id"]);
+            
+            return FrontController::getInstance()-> renderLayout(
+                $this->layout, 
+                FrontController::getInstance()->renderView($datos)
+            );
+        }
     }
 }

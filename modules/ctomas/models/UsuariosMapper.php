@@ -1,5 +1,5 @@
 <?php
-require_once('../modules/ctomas/models/adapter/' . FrontController::getInstance()->config['adapter'] . '.php');
+require_once('../modules/ctomas/models/adapter/' . FrontController::getInstance()->config['adapter'] . '.php'); // (.../adapter/MySqlAdapter.php)
 
 class UsuariosMapper
 {
@@ -40,5 +40,18 @@ class UsuariosMapper
 		$correo = $_POST['email'];
               
         return $adapter->emptyexecSQL('INSERT INTO USUARIOS(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")');
+    }
+    
+    function updateUsuario()
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter();
+        
+        $id = $_POST['id'];
+		$pass = $_POST['password']; 
+		$correo = $_POST['email'];
+        
+        return $adapter->emptyexecSQL('UPDATE USUARIOS SET CORREO="'.$correo.'", CONTRASENA="'.$pass.'"WHERE ID ="'.$id.'"');
+        
     }
 }
