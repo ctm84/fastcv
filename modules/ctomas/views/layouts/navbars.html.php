@@ -11,25 +11,25 @@
         <nav>
             <ul id="navigationMenu">
                 <li>
-                    <a class="home" href="http://miweb.local">
+                    <a class="home" href="/index">
                         <span>Home</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class="about" href="http://miweb.local/legal">
+                    <a class="about" href="/legal">
                         <span>Términos legales</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class="services" href="http://miweb.local/ayuda">
+                    <a class="services" href="/ayuda">
                         <span>Ayuda</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class="contact" href="http://miweb.local/contacto">
+                    <a class="contact" href="/contacto">
                         <span>Contacto</span>
                     </a>
                 </li>
@@ -42,13 +42,13 @@
             </div>
             <nav id="nav-main">
                 <ul>
-                    <li><a href="http://miweb.local">Home</a>
+                    <li><a href="/index">Home</a>
                     </li>
-                    <li><a href="http://miweb.local/legal">Términos legales</a>
+                    <li><a href="/legal">Términos legales</a>
                     </li>
-                    <li><a href="http://miweb.local/ayuda">Ayuda</a>
+                    <li><a href="/ayuda">Ayuda</a>
                     </li>
-                    <li><a href="http://miweb.local/contacto">Contacto</a>
+                    <li><a href="/contacto">Contacto</a>
                     </li>
                 </ul>
             </nav>

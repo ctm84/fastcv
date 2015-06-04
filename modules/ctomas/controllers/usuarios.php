@@ -19,7 +19,7 @@ class Usuarios
     function select()
     {
         
-        if(!isset(FrontController::getInstance()->request[3]["id"]) || FrontController::getInstance()->request[3]["id"]==""){
+        if(!isset(FrontController::getInstance()->request[3]["id"]) || FrontController::getInstance()->request[3]["id"]==""){ //si no hay argumentos en el request
             $usuarios = new UsuariosMapper();
             $datos = $usuarios->getUsuarios();
 
@@ -51,15 +51,9 @@ class Usuarios
     function insert()
     {
         if($_POST){
-            header('Location: http://miweb.local/index');
-            
-            $id = rand(3, 99);
-            $pass = $_POST['password']; 
-            $correo = $_POST['email'];
-            
+            header('Location: /index');
             $usuario = new UsuariosMapper();
-            return $usuario->insertUsuario($id, $pass, $correo);
-            
+            return $usuario->insertUsuario();
         }else{
             return FrontController::getInstance()->renderLayoutNavbars(
                 $this->layoutnav,

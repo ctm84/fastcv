@@ -11,14 +11,14 @@ class ContactoMapper
         $para = 'ctmdesarrollo@gmail.com'; 
 
         $header = 'From: ' . $email;
-        $msjCorreo = 'Nombre: ' .$nombre.'\n E-Mail: '. $email.'\n Mensaje:\n'. $mensaje;
+        $msjCorreo = "Nombre: $nombre\n E-Mail: $email\n Mensaje:\n $mensaje";
 
         if ($_POST['submit']) {
             
             if (mail($para, $asunto, utf8_decode($msjCorreo), $header)) {
                 echo "<script language='javascript'>
                 alert('Mensaje enviado, muchas gracias.');
-                window.location.href = 'http://miweb.local/contacto';
+                window.location.href = '/contacto';
                 </script>";
             } else {
                 echo 'Fallo en el envio';

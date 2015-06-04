@@ -22,7 +22,7 @@
 		<header>
             <div class="container">
 				<div class="logo">
-					<a id="logo-header" href="http://miweb.local/index">Fast CV</a>
+					<a id="logo-header" href="/index">Fast CV</a>
 				</div>
                 <div class="sesion">
                     <small>Bienvenido Nombre</small>
@@ -52,11 +52,11 @@
 			
 			<div class="container">
 				<div class="contact-privacy">
-					<small><a href="http://miweb.local/contacto">Contacto</a></small>
+					<small><a href="/contacto">Contacto</a></small>
 					<small>|</small>
-					<small><a href="http://miweb.local/legal">Términos legales</a></small>
+					<small><a href="/legal">Términos legales</a></small>
                     <small>|</small>
-                    <small><a href="http://miweb.local/ayuda">Ayuda</a></small>
+                    <small><a href="/ayuda">Ayuda</a></small>
 				</div>
             </div>
         </footer>

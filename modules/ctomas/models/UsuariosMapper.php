@@ -30,10 +30,14 @@ class UsuariosMapper
         return $adapter->execSQL('SELECT * FROM USUARIOS WHERE ID =' .$id);
     }
     
-    function insertUsuario($id, $pass, $correo)
+    function insertUsuario()
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
+		
+		$id = rand(3, 99);
+		$pass = $_POST['password']; 
+		$correo = $_POST['email'];
               
         return $adapter->emptyexecSQL('INSERT INTO USUARIOS(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")');
     }

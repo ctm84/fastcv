@@ -164,9 +164,4 @@ class FrontController
         return $response;
     }
     
-    function sendContacto ()
-    {
-    
-    }
-    
 }
