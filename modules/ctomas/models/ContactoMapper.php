@@ -11,7 +11,7 @@ class ContactoMapper
         $para = 'ctmdesarrollo@gmail.com'; 
 
         $header = 'From: ' . $email;
-        $msjCorreo = "Nombre: $nombre\n E-Mail: $email\n Mensaje:\n $mensaje";
+        $msjCorreo = 'Nombre: ' .$nombre.'\n E-Mail: '. $email.'\n Mensaje:\n'. $mensaje;
 
         if ($_POST['submit']) {
             

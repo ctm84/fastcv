@@ -53,8 +53,13 @@ class Usuarios
         if($_POST){
             header('Location: http://miweb.local/index');
             
+            $id = rand(3, 99);
+            $pass = $_POST['password']; 
+            $correo = $_POST['email'];
+            
             $usuario = new UsuariosMapper();
-            return $usuario->insertUsuario();
+            return $usuario->insertUsuario($id, $pass, $correo);
+            
         }else{
             return FrontController::getInstance()->renderLayoutNavbars(
                 $this->layoutnav,
