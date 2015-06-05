@@ -11,7 +11,7 @@
         <section class="module content">
             <div class="container" id="logearse">
                 <h2 class="title">Iniciar sesión</h2>
-                <form name="login" class="form" method="post">
+                <form name="login" class="form" method="post" action="/usuarios/log">
                     <p>
                         <label for="logmail">Correo electrónico</label>
                         <input type="email" id="logmail" name="email" class="text" maxlength="100" value="" required />

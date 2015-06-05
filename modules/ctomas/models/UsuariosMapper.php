@@ -54,4 +54,15 @@ class UsuariosMapper
         return $adapter->emptyexecSQL('UPDATE USUARIOS SET CORREO="'.$correo.'", CONTRASENA="'.$pass.'"WHERE ID ="'.$id.'"');
         
     }
+    
+    function logUsuario()
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter();
+        
+        $pass = $_POST['password']; 
+		$correo = $_POST['email'];
+        
+        return $adapter->execSQL('SELECT * FROM USUARIOS WHERE CORREO ="'.$correo.'" AND CONTRASENA ="'.$pass.'"');
+    }
 }

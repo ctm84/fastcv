@@ -82,4 +82,16 @@ class Usuarios
             );
         }
     }
+    
+    function log()
+    {
+        $usuario = new UsuariosMapper();
+        $datos = $usuario->logUsuario();
+        
+        if(mysql_num_rows($datos) >0){
+             header('Location: /index');
+        }else{
+           header('Location: /errores/error404');
+        }  
+    }
 }
