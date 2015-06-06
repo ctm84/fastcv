@@ -1,6 +1,7 @@
-<?
-  session_start();  
+<?php
+/*session_start();*/
 ?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -22,24 +23,40 @@
 <body>
 	<div class="wrapper">
 	
-		<header>
-            <div class="container">
-				<div class="logo">
-					<a id="logo-header" href="/index">Fast CV</a>
-				</div>
-                <div class="sesion">
-                    <small>Bienvenido Nombre</small>
-                    <small>
-				        <ul>
-				            <li>
-								
-								<span id="padlock"></span>
-								<a href="#">Cerrar Sesion</a>
-							</li>
-				        </ul>
-				    </small>
+			<header>
+                <div class="container">
+                    <div class="logo">
+                        <a id="logo-header" href="/index">Fast CV</a>
+                    </div>
+                    <div class="sesion">
+                        <small>
+                            <ul>
+                                <li>
+                                    <?php  
+                                        if (isset($_SESSION["correo_usuario"])) {
+                                            echo "Sesion: " . $_SESSION['correo_usuario'];
+                                        }else{
+                                            echo "No has iniciado sesión";
+                                        }
+                                    ?>
+                                </li>
+                            </ul>
+                        </small>
+                        <small>
+                            <ul>
+                                <li>
+                                    <?php  
+                                        if (isset($_SESSION["correo_usuario"])) {
+                                            echo "<span id='padlock'></span> <a href='usuarios/logout'>Cerrar Sesion</a>";
+                                        }else{
+                                            echo "<a href='/usuarios/insert'>Iniciar Sesion</a>";
+                                        }
+                                    ?>
+                                </li>
+                            </ul>
+                        </small>
+                    </div>
                 </div>
-            </div>
         </header>
             <?= $navbars ?>        
 		<main>

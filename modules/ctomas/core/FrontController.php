@@ -8,12 +8,13 @@ class FrontController
     
     static function getInstance()
     {
-        if(!self::$instance)
+        if(!self::$instance) {
             self::$instance = new FrontController();
-        
+            session_start(); 
+        }          
         return self::$instance; 
+    }
         
-    }    
     function getConfig()
 	{
 		require_once('../modules/ctomas/configs/configDB.php');
@@ -98,7 +99,7 @@ class FrontController
 		// de /index/index ->  /estaticas/portada
 		if ($request[1] == 'index' && $request[2] == 'index') {
 			$request[1] = 'estaticas';
-			$request[2] = 'portada';
+			$request[2] = 'index';
 		} 
 		
 		//de /contacto/index -> /estaticas/contacto

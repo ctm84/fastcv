@@ -10,10 +10,14 @@ class Estaticas
 
     //actions
     //************************//
-    function index()
-    {
-        $action = FrontController::getInstance()->request[2] = 'portada';
-        return $this->$action();  
+   function index()
+    { 
+        if (!isset($_SESSION["correo_usuario"])){
+            $action = FrontController::getInstance()->request[2] = 'portada';
+            return $this->$action();
+        }else{
+                header('Location: /curriculums');
+        }
     } 
 
     function contacto()

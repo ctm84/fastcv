@@ -52,10 +52,11 @@ class Usuarios
     function insert()
     {
         if($_POST){
-            header('Location: /index'); //redirigir a la portada
+
             $usuario = new UsuariosMapper();
-            
-            return $usuario->insertUsuario();
+            $usuario->insertUsuario();
+
+            header('Location: /index'); //redirigir a la portada
         }else{
             return FrontController::getInstance()->renderLayoutNavbars(
                 $this->layoutnav,
@@ -83,16 +84,22 @@ class Usuarios
         }
     }
     
-    function log()
+    function login()
     {
         $usuario = new UsuariosMapper();
         $datos = $usuario->logUsuario();
-        
+
         if(count($datos) >0){
-            $_SESSION["correo_usuario"] = $datos[0]['correo'];
             header('Location: /index');
         }else{
-            header('Location: /errores/error404');
-        }  
+            header('Location: /errorues/error404');
+        }
+    }
+    
+    function logout()
+    {
+        session_start();
+		session_destroy();
+        header('Location: /index');
     }
 }

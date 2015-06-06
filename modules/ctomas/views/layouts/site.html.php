@@ -1,9 +1,5 @@
 <?php
-    require_once('../modules/ctomas/controllers/sesion.php'); 
-?>
-<?php
-    $sesion = new sesion();
-    $sesion ->init(); 
+/*session_start();*/
 ?>
 
 <!DOCTYPE html>
@@ -33,24 +29,29 @@
 					<a id="logo-header" href="/index">Fast CV</a>
 				</div>
                 <div class="sesion">
-                    
-                    <?php  
-                        if (isset($_SESSION["correo_usuario"])) {
-                            echo "Sesion: " . $_SESSION['correo_usuario'];
-                        }else{
-                            echo "No has iniciado sesión";
-                        }
-                    ?>
-    
-
-
-
                     <small>
 				        <ul>
 				            <li>
-								
-								<span id="padlock"></span>
-								<a href="#">Cerrar Sesion</a>
+                                <?php  
+                                    if (isset($_SESSION["correo_usuario"])) {
+                                        echo "Sesion: " . $_SESSION['correo_usuario'];
+                                    }else{
+                                        echo "No has iniciado sesión";
+                                    }
+                                ?>
+                            </li>
+				        </ul>
+				    </small>
+                    <small>
+				        <ul>
+				            <li>
+                                <?php  
+                                    if (isset($_SESSION["correo_usuario"])) {
+                                        echo "<span id='padlock'></span> <a href='usuarios/logout'>Cerrar Sesion</a>";
+                                    }else{
+                                        echo "<a href='/usuarios/insert'>Iniciar Sesion</a>";
+                                    }
+                                ?>
 							</li>
 				        </ul>
 				    </small>
