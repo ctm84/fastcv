@@ -11,6 +11,8 @@ function getConfigGeneral ()
             
 			'errores'=>array('index','error404'),
             
+            'sesion'=>array('init', 'set', 'destroy', 'log'),
+            
 			'estaticas'=>array('index','contacto', 'portada', 'legal', 'ayuda'), 
             
             'index'=>array('index'), 

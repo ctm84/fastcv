@@ -1,5 +1,9 @@
-<?
-  session_start();  
+<?php
+    require_once('../modules/ctomas/controllers/sesion.php'); 
+?>
+<?php
+    $sesion = new sesion();
+    $sesion ->init(); 
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,18 @@
 					<a id="logo-header" href="/index">Fast CV</a>
 				</div>
                 <div class="sesion">
-                    <small>Bienvenido Nombre</small>
+                    
+                    <?php  
+                        if (isset($_SESSION["correo_usuario"])) {
+                            echo "Sesion: " . $_SESSION['correo_usuario'];
+                        }else{
+                            echo "No has iniciado sesión";
+                        }
+                    ?>
+    
+
+
+
                     <small>
 				        <ul>
 				            <li>

@@ -89,9 +89,10 @@ class Usuarios
         $datos = $usuario->logUsuario();
         
         if(count($datos) >0){
-             header('Location: /index');
+            $_SESSION["correo_usuario"] = $datos[0]['correo'];
+            header('Location: /index');
         }else{
-           header('Location: /errores/error404');
+            header('Location: /errores/error404');
         }  
     }
 }
