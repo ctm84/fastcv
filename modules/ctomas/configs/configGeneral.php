@@ -3,7 +3,7 @@ function getConfigGeneral ()
 {   
 		//array controllers   
 		return  array (
-			'usuarios'=>array('index','insert', 'select', 'update', 'delete', 'log'), 
+			'usuarios'=>array('index','insert', 'select', 'update', 'delete', 'login'), 
             
             'curriculums'=>array('index','insert', 'select', 'update', 'delete'), 
             
@@ -11,7 +11,7 @@ function getConfigGeneral ()
             
 			'errores'=>array('index','error404'),
             
-            'sesion'=>array('init', 'set', 'destroy', 'log'),
+            'sesion'=>array('init', 'set', 'destroy'),
             
 			'estaticas'=>array('index','contacto', 'portada', 'legal', 'ayuda'), 
             

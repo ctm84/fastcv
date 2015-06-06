@@ -27,19 +27,23 @@ class UsuariosMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->execSQL('SELECT * FROM USUARIOS WHERE ID =' .$id);
+        return $adapter->execSQL('SELECT * FROM usuarios WHERE ID =' .$id);
     }
     
     function insertUsuario()
     {
+
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
 		
 		$id = rand(3, 99);
 		$pass = $_POST['password']; 
 		$correo = $_POST['email'];
-              
-        return $adapter->emptyexecSQL('INSERT INTO USUARIOS(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")');
+
+        //echo 'INSERT INTO USUARIOS(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")';
+        //die;
+
+        return $adapter->emptyexecSQL('INSERT INTO usuarios(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")');
     }
     
     function updateUsuario()
@@ -59,10 +63,17 @@ class UsuariosMapper
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
-        
-        $pass = $_POST['password']; 
-		$correo = $_POST['email'];
-        
-        return $adapter->execSQL('SELECT * FROM USUARIOS WHERE CORREO ="'.$correo.'" AND CONTRASENA ="'.$pass.'"');
+
+        $resultado = $adapter->execSQL(
+            'SELECT * FROM usuarios WHERE CORREO ="'.$_POST['email'].'" AND CONTRASENA ="'.$_POST['password'].'"'
+        );
+
+        if(count($resultado) >0){
+            session_start();
+            $_SESSION["correo_usuario"] = $_POST['email'];
+        }
+
+        return $resultado;
+
     }
 }
