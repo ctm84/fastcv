@@ -67,13 +67,14 @@ class UsuariosMapper
         $resultado = $adapter->execSQL(
             'SELECT * FROM usuarios WHERE CORREO ="'.$_POST['email'].'" AND CONTRASENA ="'.$_POST['password'].'"'
         );
-
+        
         if(count($resultado) >0){
             session_start();
             $_SESSION["correo_usuario"] = $_POST['email'];
+            $_SESSION["id_usuario"] = $resultado[0]['id'];
         }
 
         return $resultado;
-
     }
+    
 }

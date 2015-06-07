@@ -48,21 +48,30 @@
 	background-color: rgba(27, 20, 100, 0.8);
 	border-radius: 25px;
 	background-size: cover;
+    transition-duration: 0.5s;
 }
 
 #nuevocvform{
 	display: none;
 }
 
-.cell button{
+.cell .button{
 	width: 22%;
 	margin: 1%;
 }
 
-.cell button img {
-	width: 100%; 
+.cell .button img {
+	width: 15%; 
 	height: auto;
-	min-width: 10px;
+	min-width: 20px;
+}
+
+.cell .button img:hover{
+	background-color: rgba(27, 20, 100, 0.8);
+	border-radius: 10px;
+	width: 20%; 
+	height: auto;
+    transition-duration: 0.3s;
 }
 
 /*Consejos*/

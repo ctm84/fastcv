@@ -5,6 +5,13 @@ $(document).ready(function() {
 			});
 });
 
+//ListarCV, funciones de botones (descartados por enlaces)
+/*$(document).ready(function() {
+			$(".borrarcv").click(function(event) {
+				$(location).attr('href','/contacto');
+			});
+});*/
+
 //Registro, confirmar contraseña
 $(document).ready(function() {
 	$("#passconfirm").blur(function(event){

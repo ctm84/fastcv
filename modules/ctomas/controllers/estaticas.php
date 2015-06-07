@@ -16,7 +16,7 @@ class Estaticas
             $action = FrontController::getInstance()->request[2] = 'portada';
             return $this->$action();
         }else{
-                header('Location: /curriculums');
+                header('Location:/curriculums/selectbyus');
         }
     } 
 

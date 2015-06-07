@@ -47,7 +47,7 @@
 				            <li>
                                 <?php  
                                     if (isset($_SESSION["correo_usuario"])) {
-                                        echo "<span id='padlock'></span> <a href='usuarios/logout'>Cerrar Sesion</a>";
+                                        echo "<span id='padlock'></span> <a href='/usuarios/logout'>Cerrar Sesion</a>";
                                     }else{
                                         echo "<a href='/usuarios/insert'>Iniciar Sesion</a>";
                                     }

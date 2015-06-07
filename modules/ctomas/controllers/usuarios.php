@@ -40,8 +40,8 @@ class Usuarios
 
     function delete()
     {
-        $usuarios = new UsuariosMapper();
-        $usuarios->borrarUsuario(FrontController::getInstance()->request[3]["id"]); // usuarios->borrarUsuario(id del user)
+        $usuario = new UsuariosMapper();
+        $usuario->borrarUsuario(FrontController::getInstance()->request[3]["id"]); // usuario->borrarUsuario(id del user)
         
         $action = FrontController::getInstance()->request[2] = 'select'; //cambio el action por select
         FrontController::getInstance()->request[3] = ''; //borro los arguments

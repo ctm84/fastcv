@@ -10,7 +10,7 @@ class FrontController
     {
         if(!self::$instance) {
             self::$instance = new FrontController();
-            session_start(); 
+            session_start(); //aprovechar la instancia del FC para iniciar sesion
         }          
         return self::$instance; 
     }
