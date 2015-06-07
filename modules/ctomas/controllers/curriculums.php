@@ -87,4 +87,16 @@ class Curriculums
         }
     }
     
+    function mostrar()
+    {
+        $curriculums = new CurriculumsMapper();
+        $datos = $curriculums->getCurriculumFull(FrontController::getInstance()->request[3]["id"]);
+
+        return FrontController::getInstance()->renderLayoutNavbars(
+            $this->layoutnav,
+            FrontController::getInstance()->renderNavbars( $this->navbars),
+            FrontController::getInstance()->renderView($datos)
+        );
+    }
+    
 }

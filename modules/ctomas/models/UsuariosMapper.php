@@ -8,6 +8,7 @@ class UsuariosMapper
         // creo un adaptador (que será el que ponga en la config)
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  // $adapter = new MySqlAdapter();
+        $resultado = $adapter->execSQL('SELECT * FROM USUARIOS');
         
         // pido que el adaptador ejecute la consulta
         return $adapter->execSQL('SELECT * FROM USUARIOS');

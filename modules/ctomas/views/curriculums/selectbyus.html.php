@@ -13,7 +13,9 @@
 				<h2 class="title">Tus CV</h2>
 
 				<div class="table">
-                 <?php foreach($datos as $rows): ?>    
+                    
+                 <?php foreach($datos as $rows): ?> <!-- php start -->
+                    
 					<div class="row">
 						<div class="cell th">
 							Nombre CV
@@ -60,7 +62,9 @@
                             </span>
 						</div>
 					</div>
-                    <?php endforeach; ?>
+                    
+                    <?php endforeach; ?><!-- /php -->
+                    
 				</div>
 			</div>
 
@@ -109,6 +113,8 @@
 				</form>	
 			</div>
 		</section>
+        
+        
     </div>
     <!-- /principal -->
 </body>

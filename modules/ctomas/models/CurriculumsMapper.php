@@ -69,7 +69,16 @@ class CurriculumsMapper
         $datosidiomas= $adapter->execSQL('SELECT * FROM IDIOMAS WHERE ID_CURRICULUM =' .$id);
         $datoscapacidades= $adapter->execSQL('SELECT * FROM CAPACIDADES WHERE ID_CURRICULUM =' .$id);
         
-        $resultado = array_merge($datospersonales, $datosexperiencia, $datosformacion, $datosidiomas, $datoscapacidades);
-        return $resultado;
+        $datos= new stdClass(); 
+        $datos -> usuario = $datospersonales;
+        $datos -> experiencia = $datosexperiencia;
+        $datos -> formacion = $datosformacion;
+        $datos -> idiomas = $datosidiomas;
+        $datos -> capacidades = $datoscapacidades;
+        
+        return $datos;
+        
+        /*$resultado = array_merge($datospersonales, $datosexperiencia, $datosformacion, $datosidiomas, $datoscapacidades);*/
+        /*return $resultado;*/
     }
 }

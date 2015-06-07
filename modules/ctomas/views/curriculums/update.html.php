@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
     <div class="principal">
 
         <nav class="info-bar">
@@ -28,42 +27,43 @@
         </section>
 
         <section class="module content" id="datos">
+            <?php foreach ($datos->usuario as $usuario)?>
 
             <div class="container">
                 <h2 class="title">Datos personales</h2>
                 <form name="datos-personales" class="form">
                     <p>
                         <label for="nombre">Nombre</label>
-                        <input maxlength="50" type="text" id="nombre" name="nombre" value="" />
+                        <input maxlength="50" type="text" id="nombre" name="nombre" value="<?= $usuario['nombre'] ?> " />
                     </p>
 
                     <p>
                         <label for="apellidos">Apellidos</label>
-                        <input maxlength="60" type="text" id="apellidos" name="apellidos" value="" />
+                        <input maxlength="60" type="text" id="apellidos" name="apellidos" value="<?= $usuario['apellidos'] ?> " />
                     </p>
 
                     <p>
                         <label for="f_nacimiento">Fecha de nacimiento</label>
-                        <input maxlength="10" type="date" id="f_nacimiento" name="nombre" value="" />
+                        <input maxlength="10" type="date" id="f_nacimiento" name="nombre" value="<?= $usuario['f_nacimiento'] ?>" />
                     </p>
 
                     <p>
                         <label for="gender">Genero</label>
                         <select id="gender" name="gender">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="hombre">Hombre</option>
-                            <option value="mujer">Mujer</option>
+                            <option value="hombre" <?=($usuario['genero']=='hombre')?'selected="selected"':'';?>>Hombre</option>
+                            <option value="mujer" <?=($usuario['genero']=='mujer')?'selected="selected"':'';?>>Mujer</option> 
                         </select>
-                    </p>
+                    </p>     
 
                     <p>
                         <label for="estado_civil">Estado civil</label>
                         <select id="estado_civil" name="estado_civil">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="soltero">Soltero/a</option>
-                            <option value="casado">Casado/a</option>
-                            <option value="divorciado">Divorciado/a</option>
-                            <option value="viudo">Viudo/a</option>
+                            <option value="soltero" <?=($usuario['estado_civil']=='Soltero')?'selected="selected"':'';?> />Soltero/a</option>
+                            <option value="casado" <?=($usuario['estado_civil']=='Casado')?'selected="selected"':'';?> />Casado/a</option>
+                            <option value="divorciado" <?=($usuario['estado_civil']=='Divorciado')?'selected="selected"':'';?>>Divorciado/a</option>
+                            <option value="viudo" <?=($usuario['estado_civil']=='Viudo')?'selected="selected"':'';?>>Viudo/a</option>
                         </select>
                     </p>
 
@@ -71,6 +71,7 @@
                         <input class="buttom" type="submit" value="Enviar">
                     </p>
                 </form>
+                 
             </div>
 
             <div class="container">
@@ -79,37 +80,37 @@
 
                     <p>
                         <label for="direccion">Dirección</label>
-                        <input maxlength="80" type="text" id="direccion" name="direccion" value="" />
+                        <input maxlength="80" type="text" id="direccion" name="direccion" value="<?= $usuario['direccion'] ?>" />
                     </p>
 
                     <p>
                         <label for="cp">Codigo Postal</label>
-                        <input maxlength="5" type="number" id="cp" name="cp" value="" />
+                        <input maxlength="5" type="number" id="cp" name="cp" value="<?= $usuario['cp'] ?>" />
                     </p>
 
                     <p>
                         <label for="poblacion">Población</label>
-                        <input maxlength="50" type="text" id="poblacion" name="poblacion" value="" />
+                        <input maxlength="50" type="text" id="poblacion" name="poblacion" value="<?= $usuario['poblacion'] ?>" />
                     </p>
 
                     <p>
                         <label for="provincia">Provincia</label>
-                        <input maxlength="30" type="text" id="provincia" name="provincia" value="" />
+                        <input maxlength="30" type="text" id="provincia" name="provincia" value="<?= $usuario['provincia'] ?>" />
                     </p>
 
                     <p>
                         <label for="pais">País</label>
-                        <input maxlength="30" type="text" id="pais" name="pais" value="" />
+                        <input maxlength="30" type="text" id="pais" name="pais" value="<?= $usuario['pais'] ?>" />
                     </p>
 
                     <p>
                         <label for="telefono">Teléfono</label>
-                        <input maxlength="15" type="tel" id="telefono" name="telefono" value="" />
+                        <input maxlength="15" type="tel" id="telefono" name="telefono" value="<?= $usuario['telefono'] ?>" />
                     </p>
 
                     <p>
                         <label for="email">Correo</label>
-                        <input maxlength="255" type="email" id="email" name="email" value="" />
+                        <input maxlength="255" type="email" id="email" name="email" value="<?= $usuario['correo'] ?>" />
                     </p>
 
                     <p>
@@ -124,7 +125,7 @@
 
                     <p>
                         <label for="perfil">Perfil</label>
-                        <textarea id="perfil" name="perfil" placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'></textarea>
+                        <textarea id="perfil" name="perfil" placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'><?= $usuario['perfil'] ?></textarea>
                     </p>
 
                     <p>
@@ -137,7 +138,8 @@
                     </p>
                 </form>
             </div>
-
+    
+            
         </section>
 
         <section class="module parallax parallax-2">
@@ -147,49 +149,51 @@
         </section>
 
         <section class="module content" id="experiencia">
+            <?php foreach ($datos->experiencia as $experiencia)?>
+            
             <div class="container">
                 <h2 class="title">Introduce una experiencia</h2>
                 <form name="experiencia" class="form">
 
                     <p>
                         <label for="empresa">Nombre de la empresa</label>
-                        <input maxlength="60" type="text" id="empresa" name="empresa" value="" />
+                        <input maxlength="60" type="text" id="empresa" name="empresa" value="<?= $experiencia['empresa'] ?>" />
                     </p>
 
 
                     <p>
                         <label for="poblacion-emp">Población</label>
-                        <input maxlength="50" type="text" id="poblacion-emp" name="poblacion-emp" value="" />
+                        <input maxlength="50" type="text" id="poblacion-emp" name="poblacion-emp" value="<?= $experiencia['poblacion'] ?>" />
                     </p>
 
                     <p>
                         <label for="provincia-emp">Provincia</label>
-                        <input maxlength="30" type="text" id="provincia-emp" name="provincia-emp" value="" />
+                        <input maxlength="30" type="text" id="provincia-emp" name="provincia-emp" value="<?= $experiencia['provincia'] ?>" />
                     </p>
 
                     <p>
                         <label for="pais-emp">País</label>
-                        <input maxlength="30" type="text" id="pais-emp" name="pais-emp" value="" />
+                        <input maxlength="30" type="text" id="pais-emp" name="pais-emp" value="<?= $experiencia['pais'] ?>" />
                     </p>
 
                     <p>
                         <label for="puesto">Puesto desempeñado</label>
-                        <input maxlength="50" type="text" id="puesto" name="puesto" value="" />
+                        <input maxlength="50" type="text" id="puesto" name="puesto" value="<?= $experiencia['puesto'] ?>" />
                     </p>
 
                     <p>
                         <label for="funciones">Funciones</label>
-                        <textarea id="funciones" name="funciones" placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'></textarea>
+                        <textarea id="funciones" name="funciones" placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'><?= $experiencia['funciones'] ?></textarea>
                     </p>
 
                     <p>
                         <label for="f_inicio">Fecha de início</label>
-                        <input type="month" id="f_inicio" name="f_inicio">
+                        <input type="month" id="f_inicio" name="f_inicio" vale="<?= $experiencia['f_inicio'] ?>">
                     </p>
 
                     <p>
                         <label for="f_fin">Fecha de finalización</label>
-                        <input type="month" id="f_fin" name="f_fin">
+                        <input type="month" id="f_fin" name="f_fin" vale="<?= $experiencia['f_fin'] ?>">
                     </p>
 
                     <p>
@@ -197,6 +201,8 @@
                     </p>
                 </form>
             </div>
+            
+          
         </section>
 
         <section class="module parallax parallax-3">
@@ -392,6 +398,7 @@
             </div>
         </section>
     </div>
+   
     <!-- /principal -->
 </body>
 

@@ -5,7 +5,7 @@ function getConfigGeneral ()
 		return  array (
 			'usuarios'=>array('index','insert', 'select', 'update', 'delete', 'login', 'logout'), 
             
-            'curriculums'=>array('index','insert', 'select', 'selectbyus', 'update', 'delete'), 
+            'curriculums'=>array('index','insert', 'select', 'selectbyus', 'update', 'mostrar', 'delete'), 
             
             'idiomas'=>array('index', 'select'), //controller de prueba
             
