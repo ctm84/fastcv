@@ -10,7 +10,7 @@
     <div class="principal">
 
         <nav class="info-bar">
-            <a class="icon cmn-home" data-title="Volver al main" href="#"></a>
+            <a class="icon cmn-home" data-title="Volver al main" href="/index"></a>
             <a class="icon cmn-datos" data-title="Datos" href="#datos"></a>
             <a class="icon cmn-experiencia " data-title="Experiencia" href="#experiencia"></a>
             <a class="icon cmn-formacion" data-title="Formación" href="#formacion"></a>
@@ -27,7 +27,7 @@
         </section>
 
         <section class="module content" id="datos">
-            <?php foreach ($datos->usuario as $usuario)?>
+            <?php foreach ($datos->usuario as $usuario):?>
 
             <div class="container">
                 <h2 class="title">Datos personales</h2>
@@ -51,19 +51,19 @@
                         <label for="gender">Genero</label>
                         <select id="gender" name="gender">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="hombre" <?=($usuario['genero']=='hombre')?'selected="selected"':'';?>>Hombre</option>
-                            <option value="mujer" <?=($usuario['genero']=='mujer')?'selected="selected"':'';?>>Mujer</option> 
+                            <option value="hombre" <?=($usuario[ 'genero']=='hombre' )? 'selected="selected"': '';?>>Hombre</option>
+                            <option value="mujer" <?=($usuario[ 'genero']=='mujer' )? 'selected="selected"': '';?>>Mujer</option>
                         </select>
-                    </p>     
+                    </p>
 
                     <p>
                         <label for="estado_civil">Estado civil</label>
                         <select id="estado_civil" name="estado_civil">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="soltero" <?=($usuario['estado_civil']=='Soltero')?'selected="selected"':'';?> />Soltero/a</option>
-                            <option value="casado" <?=($usuario['estado_civil']=='Casado')?'selected="selected"':'';?> />Casado/a</option>
-                            <option value="divorciado" <?=($usuario['estado_civil']=='Divorciado')?'selected="selected"':'';?>>Divorciado/a</option>
-                            <option value="viudo" <?=($usuario['estado_civil']=='Viudo')?'selected="selected"':'';?>>Viudo/a</option>
+                            <option value="soltero" <?=($usuario[ 'estado_civil']=='Soltero' )? 'selected="selected"': '';?> />Soltero/a</option>
+                            <option value="casado" <?=($usuario[ 'estado_civil']=='Casado' )? 'selected="selected"': '';?> />Casado/a</option>
+                            <option value="divorciado" <?=($usuario[ 'estado_civil']=='Divorciado' )? 'selected="selected"': '';?>>Divorciado/a</option>
+                            <option value="viudo" <?=($usuario[ 'estado_civil']=='Viudo' )? 'selected="selected"': '';?>>Viudo/a</option>
                         </select>
                     </p>
 
@@ -71,7 +71,7 @@
                         <input class="buttom" type="submit" value="Enviar">
                     </p>
                 </form>
-                 
+
             </div>
 
             <div class="container">
@@ -125,7 +125,9 @@
 
                     <p>
                         <label for="perfil">Perfil</label>
-                        <textarea id="perfil" name="perfil" placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'><?= $usuario['perfil'] ?></textarea>
+                        <textarea id="perfil" name="perfil" placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'>
+                            <?=$usuario['perfil'] ?>
+                        </textarea>
                     </p>
 
                     <p>
@@ -138,8 +140,8 @@
                     </p>
                 </form>
             </div>
-    
-            
+
+            <?php endforeach; ?>
         </section>
 
         <section class="module parallax parallax-2">
@@ -149,8 +151,8 @@
         </section>
 
         <section class="module content" id="experiencia">
-            <?php foreach ($datos->experiencia as $experiencia)?>
-            
+            <?php foreach ($datos->experiencia as $experiencia):?>
+
             <div class="container">
                 <h2 class="title">Introduce una experiencia</h2>
                 <form name="experiencia" class="form">
@@ -183,7 +185,9 @@
 
                     <p>
                         <label for="funciones">Funciones</label>
-                        <textarea id="funciones" name="funciones" placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'><?= $experiencia['funciones'] ?></textarea>
+                        <textarea id="funciones" name="funciones" placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'>
+                            <?=$experiencia['funciones'] ?>
+                        </textarea>
                     </p>
 
                     <p>
@@ -201,8 +205,8 @@
                     </p>
                 </form>
             </div>
-            
-          
+
+            <?php endforeach; ?>
         </section>
 
         <section class="module parallax parallax-3">
@@ -212,13 +216,15 @@
         </section>
 
         <section class="module content" id="formacion">
+            <?php foreach ($datos->formacion as $formacion):?>
+
             <div class="container">
                 <h2 class="title">Introduce una formación</h2>
                 <form name="formacion" class="form">
 
                     <p>
                         <label for="titulacion">Nombre de la titulación</label>
-                        <input maxlength="100" type="text" id="titulacion" name="titulacion" placeholder='Por ejemplo "Grado en Relaciones Laborales"' value="" />
+                        <input maxlength="100" type="text" id="titulacion" name="titulacion" placeholder='Por ejemplo "Grado en Relaciones Laborales"' value="<?= $formacion['titulacion'] ?>" />
                     </p>
 
 
@@ -226,53 +232,55 @@
                         <label for="nivel">Nivel</label>
                         <select id="nivel" name="nivel">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="Primarios">Primaria</option>
-                            <option value="Secundarios">Secundaria (E.S.O./Graduado) o equivalente</option>
-                            <option value="Postobligatorios">Bachillerato/C.O.U. o Grado Medio/F.P.1 o equivalentes</option>
-                            <option value="C.Profesionalidad">Certificado de profesionalidad o equivalente</option>
-                            <option value="SuperioresFP">Ciclo Formativo Superior/F.P.2 o equivalente</option>
-                            <option value="Universitarios1">Grado/Diplomatura/I.Técnica o equivalentes</option>
-                            <option value="Universitarios2">Master/Licenciatura/Ingeniería o equivalentes</option>
-                            <option value="Doctorado">Doctorado</option>
+                            <option value="Primarios" <?=($formacion['nivel']=='Primarios')? 'selected="selected"': '';?>>Primaria</option>
+                            <option value="Secundarios" <?=($formacion['nivel']=='Secundarios')? 'selected="selected"': '';?>>Secundaria (E.S.O./Graduado) o equivalente</option>
+                            <option value="Postobligatorios" <?=($formacion['nivel']=='Postobligatorios')? 'selected="selected"': '';?>>Bachillerato/C.O.U. o Grado Medio/F.P.1 o equivalentes</option>
+                            <option value="C.Profesionalidad" <?=($formacion['nivel']=='C.Profesionalidad')? 'selected="selected"': '';?>>Certificado de profesionalidad o equivalente</option>
+                            <option value="SuperioresFP" <?=($formacion['nivel']=='SuperioresFP')? 'selected="selected"': '';?>>Ciclo Formativo Superior/F.P.2 o equivalente</option>
+                            <option value="Universitarios1" <?=($formacion['nivel']=='Universitarios1')? 'selected="selected"': '';?>>Grado/Diplomatura/I.Técnica o equivalentes</option>
+                            <option value="Universitarios2" <?=($formacion['nivel']=='Universitarios2')? 'selected="selected"': '';?>>Master/Licenciatura/Ingeniería o equivalentes</option>
+                            <option value="Doctorado" <?=($formacion['nivel']=='Doctorado')? 'selected="selected"': '';?>>Doctorado</option>
                             <option value="Otros">Otros estudios</option>
                         </select>
                     </p>
 
                     <p>
                         <label for="centro">Nombre del centro</label>
-                        <input maxlength="60" type="text" id="centro" name="empresa" placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="" />
+                        <input maxlength="60" type="text" id="centro" name="empresa" placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="<?= $formacion['centro'] ?>" />
                     </p>
 
                     <p>
                         <label for="poblacion-for">Población</label>
-                        <input maxlength="50" type="text" id="poblacion-for" name="poblacion-efor" value="" />
+                        <input maxlength="50" type="text" id="poblacion-for" name="poblacion-efor" value="<?= $formacion['poblacion'] ?>" />
                     </p>
 
                     <p>
                         <label for="provincia-for">Provincia</label>
-                        <input maxlength="30" type="text" id="provincia-for" name="provincia-for" value="" />
+                        <input maxlength="30" type="text" id="provincia-for" name="provincia-for" value="<?= $formacion['provincia'] ?>" />
                     </p>
 
                     <p>
                         <label for="pais-for">País</label>
-                        <input maxlength="30" type="text" id="pais-for" name="pais-for" value="" />
+                        <input maxlength="30" type="text" id="pais-for" name="pais-for" value="<?= $formacion['pais'] ?>" />
                     </p>
 
                     <p>
                         <label for="a_inicio">Año de inicio</label>
-                        <input type="number" id="a_inicio" name="a_inicio">
+                        <input type="number" id="a_inicio" name="a_inicio" value="<?= $formacion['a_inicio'] ?>"/>
                     </p>
 
                     <p>
                         <label for="a_fin">Año de finalización</label>
-                        <input type="number" id="a_fin" name="a_fin">
+                        <input type="number" id="a_fin" name="a_fin" value="<?= $formacion['a_fin'] ?>"/>
                     </p>
 
                     <p>
-                        <input class="buttom" type="submit" value="Enviar">
+                        <input class="buttom" type="submit" value="Enviar"/>
                     </p>
                 </form>
             </div>
+
+            <?php endforeach; ?>
         </section>
 
         <section class="module parallax parallax-4">
@@ -282,13 +290,15 @@
         </section>
 
         <section class="module content" id="idiomas">
+            <?php foreach ($datos->idiomas as $idiomas):?>
+
             <div class="container">
                 <h2 class="title">Introduce un idioma</h2>
                 <form name="idiomas" class="form">
 
                     <p>
                         <label for="idioma">Nombre del idioma</label>
-                        <input maxlength="30" type="text" id="idioma" name="idioma" value="" />
+                        <input maxlength="30" type="text" id="idioma" name="idioma" value="<?=$idiomas['idioma'] ?>" />
                     </p>
 
 
@@ -296,13 +306,13 @@
                         <label for="com_oral">Comprensión oral</label>
                         <select id="com_oral" name="com_oral">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="A1">Básico (A1)</option>
-                            <option value="A2">Básico (A2)</option>
-                            <option value="B1">Intermedio (B1)</option>
-                            <option value="B2">Intermedio alto (B2)</option>
-                            <option value="C1">Dominio operativo eficaz (C1)</option>
-                            <option value="C2">Maestría (C2)</option>
-                            <option value="Nativo">Nativo</option>
+                            <option value="A1" <?=($idiomas['com_oral']=='A1')? 'selected="selected"': '';?>>Básico (A1)</option>
+                            <option value="A2" <?=($idiomas['com_oral']=='A2')? 'selected="selected"': '';?>>Básico (A2)</option>
+                            <option value="B1" <?=($idiomas['com_oral']=='B1')? 'selected="selected"': '';?>>Intermedio (B1)</option>
+                            <option value="B2" <?=($idiomas['com_oral']=='B2')? 'selected="selected"': '';?>>Intermedio alto (B2)</option>
+                            <option value="C1" <?=($idiomas['com_oral']=='C1')? 'selected="selected"': '';?>>Dominio operativo eficaz (C1)</option>
+                            <option value="C2" <?=($idiomas['com_oral']=='C2')? 'selected="selected"': '';?>>Maestría (C2)</option>
+                            <option value="Nativo" <?=($idiomas['com_oral']=='nativo')? 'selected="selected"': '';?>>Nativo</option>
                         </select>
                     </p>
 
@@ -310,13 +320,13 @@
                         <label for="com_escrita">Comprensión escrita</label>
                         <select id="com_escrita" name="com_escrita">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="A1">Básico (A1)</option>
-                            <option value="A2">Básico (A2)</option>
-                            <option value="B1">Intermedio (B1)</option>
-                            <option value="B2">Intermedio alto (B2)</option>
-                            <option value="C1">Dominio operativo eficaz (C1)</option>
-                            <option value="C2">Maestría (C2)</option>
-                            <option value="Nativo">Nativo</option>
+                            <option value="A1" <?=($idiomas['com_escrita']=='A1')? 'selected="selected"': '';?>>Básico (A1)</option>
+                            <option value="A2" <?=($idiomas['com_escrita']=='A2')? 'selected="selected"': '';?>>Básico (A2)</option>
+                            <option value="B1" <?=($idiomas['com_escrita']=='B1')? 'selected="selected"': '';?>>Intermedio (B1)</option>
+                            <option value="B2" <?=($idiomas['com_escrita']=='B2')? 'selected="selected"': '';?>>Intermedio alto (B2)</option>
+                            <option value="C1" <?=($idiomas['com_escrita']=='C1')? 'selected="selected"': '';?>>Dominio operativo eficaz (C1)</option>
+                            <option value="C2" <?=($idiomas['com_escrita']=='C2')? 'selected="selected"': '';?>>Maestría (C2)</option>
+                            <option value="Nativo" <?=($idiomas['com_escrita']=='nativo')? 'selected="selected"': '';?>>Nativo</option>
                         </select>
                     </p>
 
@@ -324,13 +334,13 @@
                         <label for="exp_oral">Expresión oral</label>
                         <select id="exp_oral" name="exp_oral">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="A1">Básico (A1)</option>
-                            <option value="A2">Básico (A2)</option>
-                            <option value="B1">Intermedio (B1)</option>
-                            <option value="B2">Intermedio alto (B2)</option>
-                            <option value="C1">Dominio operativo eficaz (C1)</option>
-                            <option value="C2">Maestría (C2)</option>
-                            <option value="Nativo">Nativo</option>
+                            <option value="A1" <?=($idiomas['exp_oral']=='A1')? 'selected="selected"': '';?>>Básico (A1)</option>
+                            <option value="A2" <?=($idiomas['exp_oral']=='A2')? 'selected="selected"': '';?>>Básico (A2)</option>
+                            <option value="B1" <?=($idiomas['exp_oral']=='B1')? 'selected="selected"': '';?>>Intermedio (B1)</option>
+                            <option value="B2" <?=($idiomas['exp_oral']=='B2')? 'selected="selected"': '';?>>Intermedio alto (B2)</option>
+                            <option value="C1" <?=($idiomas['exp_oral']=='C1')? 'selected="selected"': '';?>>Dominio operativo eficaz (C1)</option>
+                            <option value="C2" <?=($idiomas['exp_oral']=='C2')? 'selected="selected"': '';?>>Maestría (C2)</option>
+                            <option value="Nativo" <?=($idiomas['exp_oral']=='nativo')? 'selected="selected"': '';?>>Nativo</option>
                         </select>
                     </p>
 
@@ -338,13 +348,13 @@
                         <label for="exp_escrita">Expresión escrita</label>
                         <select id="exp_escrita" name="exp_escrita">
                             <option value="" selected="selected">- Selecciona -</option>
-                            <option value="A1">Básico (A1)</option>
-                            <option value="A2">Básico (A2)</option>
-                            <option value="B1">Intermedio (B1)</option>
-                            <option value="B2">Intermedio alto (B2)</option>
-                            <option value="C1">Dominio operativo eficaz (C1)</option>
-                            <option value="C2">Maestría (C2)</option>
-                            <option value="Nativo">Nativo</option>
+                            <option value="A1" <?=($idiomas['exp_escrita']=='A1')? 'selected="selected"': '';?>>Básico (A1)</option>
+                            <option value="A2" <?=($idiomas['exp_escrita']=='A2')? 'selected="selected"': '';?>>Básico (A2)</option>
+                            <option value="B1" <?=($idiomas['exp_escrita']=='B1')? 'selected="selected"': '';?>>Intermedio (B1)</option>
+                            <option value="B2" <?=($idiomas['exp_escrita']=='B2')? 'selected="selected"': '';?>>Intermedio alto (B2)</option>
+                            <option value="C1" <?=($idiomas['exp_escrita']=='C1')? 'selected="selected"': '';?>>Dominio operativo eficaz (C1)</option>
+                            <option value="C2" <?=($idiomas['exp_escrita']=='C2')? 'selected="selected"': '';?>>Maestría (C2)</option>
+                            <option value="Nativo" <?=($idiomas['exp_escrita']=='nativo')? 'selected="selected"': '';?>>Nativo</option>
                         </select>
                     </p>
 
@@ -353,6 +363,8 @@
                     </p>
                 </form>
             </div>
+
+            <?php endforeach; ?>
         </section>
 
         <section class="module parallax parallax-5">
@@ -362,43 +374,50 @@
         </section>
 
         <section class="module content" id="capacidades">
+            
+            <?php foreach ($datos->capacidades as $capacidades):?>
             <div class="container">
                 <h2 class="title">Introduce una capacidad</h2>
                 <form name="capacidades" class="form">
 
                     <p>
                         <label for="capacidad">Nombre de la capacidad</label>
-                        <input maxlength="60" type="text" id="capacidad" name="capacidad" placeholder='Ejemplo:"Mecanografía"' value="" />
+                        <input maxlength="60" type="text" id="capacidad" name="capacidad" placeholder='Ejemplo:"Mecanografía"' value="<?= $capacidades['nombre'] ?>" />
                     </p>
 
 
                     <p>
                         <label for="descripcion">Descripción</label>
-                        <textarea id="descripcion" name="descripcion" placeholder='Breve explicación de la capacidad, por ejemplo para Mecanografía: "400 pulsaciones" o para Ofimática "Paquete Office: Word, Excel, Access y PowerPoint, nivel avanzado"'></textarea>
+                        <textarea id="descripcion" name="descripcion" placeholder='Breve explicación de la capacidad, por ejemplo para Mecanografía: "400 pulsaciones" o para Ofimática "Paquete Office: Word, Excel, Access y PowerPoint, nivel avanzado"'>
+                            <?=$capacidades['descripcion'] ?>
+                        </textarea>
                     </p>
 
                     <p>
                         <input class="buttom" type="submit" value="Enviar">
                     </p>
                 </form>
-
-                <div class="container">
-                    <h2 class="title">Otros datos de interés</h2>
-                    <form name="otrosdatos" class="form">
-                        <p>
-                            <label for="otros">Otros datos</label>
-                            <textarea id="otros" name="otros" placeholder='Añade de una sola vez  otra información que creas relevante, por ejemplo "Licencia de conducción B y C. Disponibilidad horaria y geográfica. Carné de manipulador de alimentos" '></textarea>
-                        </p>
-
-                        <p>
-                            <input class="buttom" type="submit" value="Enviar">
-                        </p>
-                    </form>
-                </div>
             </div>
+            <?php endforeach; ?>
+
+            <?php foreach ($datos->usuario as $usuario):?>
+            <div class="container">
+                <h2 class="title">Otros datos de interés</h2>
+                <form name="otrosdatos" class="form">
+                    <p>
+                        <label for="otros">Otros datos</label>
+                        <textarea id="otros" name="otros" placeholder='Añade de una sola vez  otra información que creas relevante, por ejemplo "Licencia de conducción B y C. Disponibilidad horaria y geográfica. Carné de manipulador de alimentos" '><?=$usuario['otros'] ?></textarea>
+                    </p>
+
+                    <p>
+                        <input class="buttom" type="submit" value="Enviar">
+                    </p>
+                </form>
+            </div>
+            <?php endforeach; ?>
         </section>
+
     </div>
-   
     <!-- /principal -->
 </body>
 

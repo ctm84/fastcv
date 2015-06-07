@@ -14,7 +14,7 @@
 
 				<div class="table">
                     
-                 <?php foreach($datos as $rows): ?> <!-- php start -->
+                 <?php foreach($datos as $rows):?> <!-- php start -->
                     
 					<div class="row">
 						<div class="cell th">
