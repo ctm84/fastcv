@@ -30,8 +30,8 @@
             <?php foreach ($datos->usuario as $usuario):?>
 
             <div class="container">
-                <h2 class="title">Datos personales</h2>
-                <form name="datos-personales" class="form">
+                <form name="datos-personales" class="form" method="post">
+                    <h2 class="title">Datos personales</h2>
                     <p>
                         <label for="nombre">Nombre</label>
                         <input maxlength="50" type="text" id="nombre" name="nombre" value="<?= $usuario['nombre'] ?> " />
@@ -44,7 +44,7 @@
 
                     <p>
                         <label for="f_nacimiento">Fecha de nacimiento</label>
-                        <input maxlength="10" type="date" id="f_nacimiento" name="nombre" value="<?= $usuario['f_nacimiento'] ?>" />
+                        <input maxlength="10" type="date" id="f_nacimiento" name="f_nacimiento" value="<?= $usuario['f_nacimiento'] ?>" />
                     </p>
 
                     <p>
@@ -66,17 +66,8 @@
                             <option value="viudo" <?=($usuario[ 'estado_civil']=='Viudo' )? 'selected="selected"': '';?>>Viudo/a</option>
                         </select>
                     </p>
-
-                    <p>
-                        <input class="buttom" type="submit" value="Enviar">
-                    </p>
-                </form>
-
-            </div>
-
-            <div class="container">
-                <h2 class="title">Datos  de contacto</h2>
-                <form name="datos-contacto" class="form">
+            
+                    <h2 class="title">Datos  de contacto</h2>
 
                     <p>
                         <label for="direccion">Dirección</label>
@@ -112,16 +103,8 @@
                         <label for="email">Correo</label>
                         <input maxlength="255" type="email" id="email" name="email" value="<?= $usuario['correo'] ?>" />
                     </p>
-
-                    <p>
-                        <input class="buttom" type="submit" value="Enviar">
-                    </p>
-                </form>
-            </div>
-
-            <div class="container">
-                <h2 class="title">Otros datos</h2>
-                <form name="datos-otros" class="form" enctype="multipart/form-data">
+               
+                    <h2 class="title">Sobre tí</h2>
 
                     <p>
                         <label for="perfil">Perfil</label>
@@ -132,7 +115,7 @@
 
                     <p>
                         <label for="foto">Foto</label>
-                        <input type="file" id="foto" name="foto" />
+                        <input type="file" id="foto" name="foto" disabled />
                     </p>
 
                     <p>
@@ -154,8 +137,9 @@
             <?php foreach ($datos->experiencia as $experiencia):?>
 
             <div class="container">
-                <h2 class="title">Introduce una experiencia</h2>
-                <form name="experiencia" class="form">
+                <form name="experiencia" class="form" method="post" action="/experiencia/update/exp/<?= $experiencia['codigo'] ?>/cv/<?= $experiencia['id_curriculum'] ?>">
+                    
+                    <h2 class="title"><?= $experiencia['empresa'] ?></h2>
 
                     <p>
                         <label for="empresa">Nombre de la empresa</label>
@@ -202,11 +186,29 @@
 
                     <p>
                         <input class="buttom" type="submit" value="Enviar">
+                        <a class="eliminarform" href="/experiencia/delete/exp/<?= $experiencia['codigo'] ?>/cv/<?= $experiencia['id_curriculum'] ?>">Eliminar</a>
                     </p>
                 </form>
             </div>
-
+            <hr>
+            
             <?php endforeach; ?>
+        </section>
+        
+        <section class="module content" id="nuevaexp">
+            <div class="container">
+                <form name="nuevaexpform" class="form nuevoform" method="post" action="/experiencia/insert/cv/<?=FrontController::getInstance()->request[3]["id"]?>">
+                    <h3 class="sub-title">Añadir experiencia</h3>
+                    <p>
+                        <label for="nombrecv">Nombre de la empresa</label>
+                        <input maxlength="50" type="text" id="empresa" name="empresa" placeholder='Por Ejemplo: Frankerts S.A.' required value="" />
+                    </p>
+
+                    <p>
+                        <input class="buttom" type="submit" value="Crear">
+                    </p>
+                </form>
+            </div>
         </section>
 
         <section class="module parallax parallax-3">
@@ -219,9 +221,8 @@
             <?php foreach ($datos->formacion as $formacion):?>
 
             <div class="container">
-                <h2 class="title">Introduce una formación</h2>
-                <form name="formacion" class="form">
-
+                <form name="formacion" class="form" method="post" action="/formacion/update/forma/<?= $formacion['codigo'] ?>/cv/<?= $formacion['id_curriculum'] ?>">
+                    <h2 class="title"><?= $formacion['titulacion'] ?></h2>
                     <p>
                         <label for="titulacion">Nombre de la titulación</label>
                         <input maxlength="100" type="text" id="titulacion" name="titulacion" placeholder='Por ejemplo "Grado en Relaciones Laborales"' value="<?= $formacion['titulacion'] ?>" />
@@ -246,12 +247,12 @@
 
                     <p>
                         <label for="centro">Nombre del centro</label>
-                        <input maxlength="60" type="text" id="centro" name="empresa" placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="<?= $formacion['centro'] ?>" />
+                        <input maxlength="60" type="text" id="centro" name="centro" placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="<?= $formacion['centro'] ?>" />
                     </p>
 
                     <p>
                         <label for="poblacion-for">Población</label>
-                        <input maxlength="50" type="text" id="poblacion-for" name="poblacion-efor" value="<?= $formacion['poblacion'] ?>" />
+                        <input maxlength="50" type="text" id="poblacion-for" name="poblacion-for" value="<?= $formacion['poblacion'] ?>" />
                     </p>
 
                     <p>
@@ -276,11 +277,29 @@
 
                     <p>
                         <input class="buttom" type="submit" value="Enviar"/>
+                        <a class="eliminarform" href="/formacion/delete/forma/<?= $formacion['codigo'] ?>/cv/<?= $formacion['id_curriculum'] ?>">Eliminar</a>
                     </p>
                 </form>
             </div>
-
+            <hr>
+            
             <?php endforeach; ?>
+        </section>
+
+        <section class="module content" id="nuevaforma">
+            <div class="container">
+                <form name="nuevaformaform"  class="form nuevoform" method="post" action="/formacion/insert/cv/<?=FrontController::getInstance()->request[3]["id"]?>">
+                    <h3 class="sub-title">Añadir formación</h3>
+                    <p>
+                        <label for="nombrecv">Nombre de la formación</label>
+                        <input maxlength="50" type="text" id="formacion" name="formacion" placeholder='Por Ejemplo: Licenciatura en Periodismo' required value="" />
+                    </p>
+
+                    <p>
+                        <input class="buttom" type="submit" value="Crear">
+                    </p>
+                </form>
+            </div>
         </section>
 
         <section class="module parallax parallax-4">
@@ -293,9 +312,8 @@
             <?php foreach ($datos->idiomas as $idiomas):?>
 
             <div class="container">
-                <h2 class="title">Introduce un idioma</h2>
-                <form name="idiomas" class="form">
-
+                <form name="idiomas" class="form" method="post" action="/idiomas/update/idi/<?= $idiomas['codigo'] ?>/cv/<?= $idiomas['id_curriculum'] ?>">
+                    <h2 class="title"><?=$idiomas['idioma'] ?></h2>
                     <p>
                         <label for="idioma">Nombre del idioma</label>
                         <input maxlength="30" type="text" id="idioma" name="idioma" value="<?=$idiomas['idioma'] ?>" />
@@ -360,12 +378,31 @@
 
                     <p>
                         <input class="buttom" type="submit" value="Enviar">
+                        <a class="eliminarform" href="/idiomas/delete/idi/<?= $idiomas['codigo'] ?>/cv/<?= $idiomas['id_curriculum'] ?>">Eliminar</a>
                     </p>
                 </form>
             </div>
+            <hr>
 
             <?php endforeach; ?>
         </section>
+        
+        <section class="module content" id="nuevoidioma">
+            <div class="container">
+                <form name="nuevoidiomaform" class="form nuevoform" method="post" action="/idiomas/insert/cv/<?=FrontController::getInstance()->request[3]["id"]?>">
+                    <h3 class="sub-title">Añadir Idioma</h3>
+                    <p>
+                        <label for="nombrecv">Idioma</label>
+                        <input maxlength="50" type="text" id="idioma" name="idioma" placeholder='Por Ejemplo: Inglés' required value="" />
+                    </p>
+
+                    <p>
+                        <input class="buttom" type="submit" value="Crear">
+                    </p>
+                </form>
+            </div>
+        </section>
+
 
         <section class="module parallax parallax-5">
             <div class="container punteado">
@@ -377,8 +414,8 @@
             
             <?php foreach ($datos->capacidades as $capacidades):?>
             <div class="container">
-                <h2 class="title">Introduce una capacidad</h2>
-                <form name="capacidades" class="form">
+                <form name="capacidadess" class="form" method="post" action="/capacidades/update/cap/<?= $capacidades['codigo'] ?>/cv/<?= $capacidades['id_curriculum'] ?>">
+                    <h2 class="title"><?= $capacidades['nombre'] ?></h2>
 
                     <p>
                         <label for="capacidad">Nombre de la capacidad</label>
@@ -395,18 +432,40 @@
 
                     <p>
                         <input class="buttom" type="submit" value="Enviar">
+                        <a class="eliminarform" href="/capacidades/delete/cap/<?= $capacidades['codigo'] ?>/cv/<?= $capacidades['id_curriculum'] ?>">Eliminar</a>
                     </p>
                 </form>
             </div>
+            <hr>
+            
             <?php endforeach; ?>
+        </section>
 
-            <?php foreach ($datos->usuario as $usuario):?>
+        <section class="module content" id="nuevacapacidad">
+            <div class="container">
+                <form name="nuevacapform" class="form nuevoform" method="post" action="/capacidades/insert/cv/<?=FrontController::getInstance()->request[3]["id"]?>">
+                    <h3 class="sub-title">Añadir Capacidad</h3>
+                    <p>
+                        <label for="nombrecv">Capacidad</label>
+                        <input maxlength="50" type="text" id="capacidad" name="capacidad" placeholder='Por Ejemplo: Mecanografía' required value="" />
+                    </p>
+
+                    <p>
+                        <input class="buttom" type="submit" value="Crear">
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <section class="module content" id="capacidades">
+        <?php foreach ($datos->usuario as $usuario):?>
+            
             <div class="container">
                 <h2 class="title">Otros datos de interés</h2>
-                <form name="otrosdatos" class="form">
+                <form name="otrosdatosform" class="form nuevoform" method="post">
                     <p>
                         <label for="otros">Otros datos</label>
-                        <textarea id="otros" name="otros" placeholder='Añade de una sola vez  otra información que creas relevante, por ejemplo "Licencia de conducción B y C. Disponibilidad horaria y geográfica. Carné de manipulador de alimentos" '><?=$usuario['otros'] ?></textarea>
+                        <textarea id="otrosdatos" name="otrosdatos" placeholder='Añade de una sola vez  otra información que creas relevante, por ejemplo "Licencia de conducción B y C. Disponibilidad horaria y geográfica. Carné de manipulador de alimentos" '><?=$usuario['otros'] ?></textarea>
                     </p>
 
                     <p>
@@ -414,7 +473,7 @@
                     </p>
                 </form>
             </div>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </section>
 
     </div>

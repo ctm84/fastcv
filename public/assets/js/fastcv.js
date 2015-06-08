@@ -12,6 +12,7 @@ $(document).ready(function() {
 			});
 });*/
 
+
 //Registro, confirmar contraseña
 $(document).ready(function() {
 	$("#passconfirm").blur(function(event){

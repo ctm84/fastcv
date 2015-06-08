@@ -5,16 +5,23 @@ function getConfigGeneral ()
 		return  array (
 			'usuarios'=>array('index','insert', 'select', 'update', 'delete', 'login', 'logout'), 
             
-            'curriculums'=>array('index','insert', 'select', 'selectbyus', 'update', 'mostrar', 'delete'), 
+            'curriculums'=>array('index', 'select', 'insert', 'delete', 'update', 'selectbyus', 'mostrar'), 
             
-            'idiomas'=>array('index', 'select'), //controller de prueba
+            'idiomas'=>array('index', 'select', 'insert', 'delete', 'update'), 
+            
+            'experiencia'=>array('select', 'insert', 'delete', 'update'),
+            
+            'formacion'=>array('select', 'insert', 'delete', 'update'),
+            
+            'capacidades'=>array('select', 'insert', 'delete', 'update'),
             
 			'errores'=>array('index','error404'),
             
 			'estaticas'=>array('index','contacto', 'portada', 'legal', 'ayuda'), 
             
             'index'=>array('index'), 
-            'contacto'=>array('index'), 
+            'contacto'=>array('index'),
+            'portada'=>array('index'), 
             'legal'=>array('index'), 
             'ayuda'=>array('index'),
 		);  

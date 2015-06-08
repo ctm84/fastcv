@@ -12,14 +12,15 @@ class Curriculums
     //************************//
     function index()
     {
-        $action = FrontController::getInstance()->request[2] = 'select';
+        $action = FrontController::getInstance()->request[2] = 'selectbyus';
         return $this->$action();
     }
 
     function select()
     {
+         $curriculums = new CurriculumsMapper();
+        
          if(!isset(FrontController::getInstance()->request[3]["id"]) || FrontController::getInstance()->request[3]["id"]==""){ 
-            $curriculums = new CurriculumsMapper();
             $datos = $curriculums->getCurriculums();
 
             return FrontController::getInstance()->renderLayoutNavbars(
@@ -28,7 +29,6 @@ class Curriculums
                 FrontController::getInstance()->renderView($datos)
             );
          }else{
-                $curriculum = new CurriculumsMapper();
                 $datos = $curriculum->getCurriculum(FrontController::getInstance()->request[3]["id"]);
 
                 return FrontController::getInstance()-> renderLayout(
@@ -71,16 +71,22 @@ class Curriculums
 
     function update()
     {
+        $curriculum = new CurriculumsMapper();
+        
         if($_POST){
-             header('Location: /index');
-             $curriculum = new CurriculumsMapper();
-            
-             return $curriculum->updateCurriculum();
+             if(!isset($_POST['otrosdatos'])){
+                 $curriculum->updateCurriculum(FrontController::getInstance()->request[3]["id"]);
+
+                 header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["id"]);
+             }else{
+                $curriculum->updateOtros(FrontController::getInstance()->request[3]["id"]);
+                 
+                 header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["id"]);
+             }
         }else{
-             $curriculum = new CurriculumsMapper();
              $datos = $curriculum->getCurriculumFull(FrontController::getInstance()->request[3]["id"]);
             
-            return FrontController::getInstance()-> renderLayout(
+             return FrontController::getInstance()-> renderLayout(
                 $this->layout, 
                 FrontController::getInstance()->renderView($datos)
             );

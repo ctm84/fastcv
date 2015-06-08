@@ -45,20 +45,41 @@ class CurriculumsMapper
 
         return $adapter->emptyexecSQL('INSERT INTO CURRICULUM(ID, ALIAS, ID_USUARIO ) VALUES("'.$id.'","'.$nombre.'","'.$_SESSION["id_usuario"].'")');
     }
-    
-    function updateCurriculum()
+  
+    function updateCurriculum($id)
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
         
-        $id = $_POST['id'];
-		$pass = $_POST['password']; 
-		$correo = $_POST['email'];
+        return $adapter->emptyexecSQL('UPDATE CURRICULUM SET 
+        NOMBRE="'.$_POST['nombre'].'", 
+        APELLIDOS="'.$_POST['apellidos'].'", 
+        F_NACIMIENTO="'.$_POST['f_nacimiento'].'",
+        GENERO="'.$_POST['gender'].'",
+        ESTADO_CIVIL="'.$_POST['estado_civil'].'",
+        DIRECCION="'.$_POST['direccion'].'",
+        CP="'.$_POST['cp'].'",
+        POBLACION="'.$_POST['poblacion'].'",
+        PROVINCIA="'.$_POST['provincia'].'",
+        PAIS="'.$_POST['pais'].'",
+        TELEFONO="'.$_POST['telefono'].'",
+        CORREO="'.$_POST['email'].'",
+        PERFIL="'.$_POST['perfil'].'"
         
-        return $adapter->emptyexecSQL('UPDATE USUARIOS SET CORREO="'.$correo.'", CONTRASENA="'.$pass.'"WHERE ID ="'.$id.'"');
+        WHERE ID ="'.$id.'"');
     }
     
-    function getCurriculumFull($id)
+    function updateOtros($id)
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter();
+        
+        return $adapter->emptyexecSQL('UPDATE CURRICULUM SET 
+        OTROS="'.$_POST['otrosdatos'].'"
+        WHERE ID ="'.$id.'"');
+    }
+    
+    function getCurriculumFull($id) //temporal, pendiente de hacer cada consulta desde su controller
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  

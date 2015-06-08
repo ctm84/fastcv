@@ -24,14 +24,34 @@ class Idiomas
             FrontController::getInstance()->renderView($datos)
         );
     }
+    
+    function insert()
+    {
+        if($_POST){
+            $idiomas = new IdiomasMapper();
+            $idiomas->insertIdiomas(FrontController::getInstance()->request[3]["cv"]);
 
+            header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["cv"]); 
+        }
+    }
+    
     function delete()
     {
-
+        $idiomas = new IdiomasMapper();
+        $idiomas->borrarIdiomas(FrontController::getInstance()->request[3]["idi"]);
+        
+        header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["cv"]); 
     }
-
+    
     function update()
     {
+        if($_POST){
+             $idiomas = new IdiomasMapper();
+             $idiomas->updateIdiomas(FrontController::getInstance()->request[3]["idi"]);
+            
+            header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["cv"]);
+        }
+    }
 
-    } 
+    
 }
