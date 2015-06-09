@@ -7,11 +7,10 @@ class FormacionMapper
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
-
-        $codigo = rand(3, 99);
+       
         $nombre = $_POST['formacion']; 
 
-        return $adapter->emptyexecSQL('INSERT INTO FORMACION(CODIGO, TITULACION, ID_CURRICULUM ) VALUES("'.$codigo.'","'.$nombre.'","'.$cv.'")');
+        return $adapter->emptyexecSQL('INSERT INTO FORMACION(TITULACION, ID_CURRICULUM ) VALUES("'.$nombre.'","'.$cv.'")');
     }
     
     function borrarFormacion ($forma)
@@ -19,7 +18,7 @@ class FormacionMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->emptyexecSQL('DELETE FROM FORMACION WHERE CODIGO ='.$forma); 
+        return $adapter->emptyexecSQL('DELETE FROM FORMACION WHERE CODIGO ="'.$forma.'"');
     }
     
     function updateFormacion($forma)

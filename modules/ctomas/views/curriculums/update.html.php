@@ -23,12 +23,12 @@
                     <h2 class="title">Datos personales</h2>
                     <p>
                         <label for="nombre">Nombre</label>
-                        <input maxlength="50" type="text" id="nombre" name="nombre" value="<?= $usuario['nombre'] ?> " />
+                        <input maxlength="50" type="text" id="nombre" name="nombre" required value="<?= $usuario['nombre'] ?> " />
                     </p>
 
                     <p>
                         <label for="apellidos">Apellidos</label>
-                        <input maxlength="60" type="text" id="apellidos" name="apellidos" value="<?= $usuario['apellidos'] ?> " />
+                        <input maxlength="60" type="text" id="apellidos" name="apellidos" required value="<?= $usuario['apellidos'] ?> " />
                     </p>
 
                     <p>
@@ -85,19 +85,19 @@
 
                     <p>
                         <label for="telefono">Teléfono</label>
-                        <input maxlength="15" type="tel" id="telefono" name="telefono" value="<?= $usuario['telefono'] ?>" />
+                        <input maxlength="15" type="tel" id="telefono" name="telefono" required value="<?= $usuario['telefono'] ?>" />
                     </p>
 
                     <p>
                         <label for="email">Correo</label>
-                        <input maxlength="255" type="email" id="email" name="email" value="<?= $usuario['correo'] ?>" />
+                        <input maxlength="255" type="email" id="email" name="email" required value="<?= $usuario['correo'] ?>" />
                     </p>
                
                     <h2 class="title">Sobre tí</h2>
 
                     <p>
                         <label for="perfil">Perfil</label>
-                        <textarea id="perfil" name="perfil" placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'>
+                        <textarea id="perfil" name="perfil" required placeholder='Un breve resumen, por ejemplo: "Me defino como una persona trabajadora y responsable con inquietud por seguir formándome."'>
                             <?=$usuario['perfil'] ?>
                         </textarea>
                     </p>
@@ -132,7 +132,7 @@
 
                     <p>
                         <label for="empresa">Nombre de la empresa</label>
-                        <input maxlength="60" type="text" id="empresa" name="empresa" value="<?= $experiencia['empresa'] ?>" />
+                        <input maxlength="60" type="text" id="empresa" name="empresa" required value="<?= $experiencia['empresa'] ?>" />
                     </p>
 
 
@@ -153,24 +153,24 @@
 
                     <p>
                         <label for="puesto">Puesto desempeñado</label>
-                        <input maxlength="50" type="text" id="puesto" name="puesto" value="<?= $experiencia['puesto'] ?>" />
+                        <input maxlength="50" type="text" id="puesto" name="puesto" required value="<?= $experiencia['puesto'] ?>" />
                     </p>
 
                     <p>
                         <label for="funciones">Funciones</label>
-                        <textarea id="funciones" name="funciones" placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'>
+                        <textarea id="funciones" name="funciones" required placeholder='Enumera las funciones que desempeñabas, por ejemplo: "Atención telefónica, archivo de documentación, control de stocks."'>
                             <?=$experiencia['funciones'] ?>
                         </textarea>
                     </p>
 
                     <p>
                         <label for="f_inicio">Fecha de início</label>
-                        <input type="month" id="f_inicio" name="f_inicio" vale="<?= $experiencia['f_inicio'] ?>">
+                        <input type="text" maxlength="50" id="f_inicio" name="f_inicio" placeholder='Por Ejemplo: abril de 2012' required  value="<?= $experiencia['f_inicio'] ?>">
                     </p>
 
                     <p>
                         <label for="f_fin">Fecha de finalización</label>
-                        <input type="month" id="f_fin" name="f_fin" vale="<?= $experiencia['f_fin'] ?>">
+                        <input type="text" maxlength="50" id="f_fin"  name="f_fin" placeholder='Por Ejemplo: junio de 2015' required value="<?= $experiencia['f_fin'] ?>">
                     </p>
 
                     <p>
@@ -214,7 +214,7 @@
                     <h2 class="title"><?= $formacion['titulacion'] ?></h2>
                     <p>
                         <label for="titulacion">Nombre de la titulación</label>
-                        <input maxlength="100" type="text" id="titulacion" name="titulacion" placeholder='Por ejemplo "Grado en Relaciones Laborales"' value="<?= $formacion['titulacion'] ?>" />
+                        <input maxlength="100" type="text" id="titulacion" name="titulacion" required placeholder='Por ejemplo "Grado en Relaciones Laborales"' value="<?= $formacion['titulacion'] ?>" />
                     </p>
 
 
@@ -236,7 +236,7 @@
 
                     <p>
                         <label for="centro">Nombre del centro</label>
-                        <input maxlength="60" type="text" id="centro" name="centro" placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="<?= $formacion['centro'] ?>" />
+                        <input maxlength="60" type="text" id="centro" name="centro" required placeholder='Por ejemplo "Universidad Complutense de Madrid"' value="<?= $formacion['centro'] ?>" />
                     </p>
 
                     <p>
@@ -256,12 +256,12 @@
 
                     <p>
                         <label for="a_inicio">Año de inicio</label>
-                        <input type="number" id="a_inicio" name="a_inicio" value="<?= $formacion['a_inicio'] ?>"/>
+                        <input type="number" id="a_inicio" name="a_inicio" required value="<?= $formacion['a_inicio'] ?>"/>
                     </p>
 
                     <p>
                         <label for="a_fin">Año de finalización</label>
-                        <input type="number" id="a_fin" name="a_fin" value="<?= $formacion['a_fin'] ?>"/>
+                        <input type="number" id="a_fin" name="a_fin" required value="<?= $formacion['a_fin'] ?>"/>
                     </p>
 
                     <p>
@@ -305,7 +305,7 @@
                     <h2 class="title"><?=$idiomas['idioma'] ?></h2>
                     <p>
                         <label for="idioma">Nombre del idioma</label>
-                        <input maxlength="30" type="text" id="idioma" name="idioma" value="<?=$idiomas['idioma'] ?>" />
+                        <input maxlength="30" type="text" id="idioma" name="idioma" required value="<?=$idiomas['idioma'] ?>" />
                     </p>
 
 
@@ -408,7 +408,7 @@
 
                     <p>
                         <label for="capacidad">Nombre de la capacidad</label>
-                        <input maxlength="60" type="text" id="capacidad" name="capacidad" placeholder='Ejemplo:"Mecanografía"' value="<?= $capacidades['nombre'] ?>" />
+                        <input maxlength="60" type="text" id="capacidad" name="capacidad" required placeholder='Ejemplo:"Mecanografía"' value="<?= $capacidades['nombre'] ?>" />
                     </p>
 
 

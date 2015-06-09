@@ -16,7 +16,7 @@ class CurriculumsMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID =' .$id);
+        return $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID ="' .$id.'"');
     }
     
     function getCurriculumsByUser()
@@ -24,7 +24,7 @@ class CurriculumsMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
     
-        return $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID_USUARIO =' .$_SESSION["id_usuario"]);
+        return $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID_USUARIO ="' .$_SESSION["id_usuario"].'" ORDER BY F_CREACION DESC');
     }
     
     function borrarCurriculum ($id)
@@ -32,7 +32,7 @@ class CurriculumsMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->emptyexecSQL('DELETE FROM CURRICULUM WHERE ID =' .$id); 
+        return $adapter->emptyexecSQL('DELETE FROM CURRICULUM WHERE ID ="' .$id.'"'); 
     }
     
     function insertCurriculum()
@@ -40,7 +40,7 @@ class CurriculumsMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
         
-		$id = rand(3, 99);
+		$id = uniqid('cv_');
 		$nombre = $_POST['nombrecv']; 
 
         return $adapter->emptyexecSQL('INSERT INTO CURRICULUM(ID, ALIAS, ID_USUARIO ) VALUES("'.$id.'","'.$nombre.'","'.$_SESSION["id_usuario"].'")');
@@ -65,7 +65,7 @@ class CurriculumsMapper
         TELEFONO="'.$_POST['telefono'].'",
         CORREO="'.$_POST['email'].'",
         PERFIL="'.$_POST['perfil'].'"
-        
+             
         WHERE ID ="'.$id.'"');
     }
     
@@ -84,11 +84,11 @@ class CurriculumsMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        $datospersonales = $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID =' .$id);
-        $datosexperiencia= $adapter->execSQL('SELECT * FROM EXPERIENCIA WHERE ID_CURRICULUM =' .$id);
-        $datosformacion= $adapter->execSQL('SELECT * FROM FORMACION WHERE ID_CURRICULUM =' .$id);
-        $datosidiomas= $adapter->execSQL('SELECT * FROM IDIOMAS WHERE ID_CURRICULUM =' .$id);
-        $datoscapacidades= $adapter->execSQL('SELECT * FROM CAPACIDADES WHERE ID_CURRICULUM =' .$id);
+        $datospersonales = $adapter->execSQL('SELECT * FROM CURRICULUM WHERE ID ="' .$id.'"');
+        $datosexperiencia= $adapter->execSQL('SELECT * FROM EXPERIENCIA WHERE ID_CURRICULUM ="' .$id.'"');
+        $datosformacion= $adapter->execSQL('SELECT * FROM FORMACION WHERE ID_CURRICULUM ="' .$id.'"');
+        $datosidiomas= $adapter->execSQL('SELECT * FROM IDIOMAS WHERE ID_CURRICULUM ="' .$id.'"');
+        $datoscapacidades= $adapter->execSQL('SELECT * FROM CAPACIDADES WHERE ID_CURRICULUM ="' .$id.'"');
         
         $datos= new stdClass(); 
         $datos -> usuario = $datospersonales;
@@ -98,7 +98,7 @@ class CurriculumsMapper
         $datos -> capacidades = $datoscapacidades;
         
         if($_POST){
-            $datos ->estilo = $_POST['estilo']; 
+            $datos ->estilo = $_POST['estilo']; //solo es una prueba, se podría pasar el post directo a la view sin meterlo en el objeto.
         }
         
         

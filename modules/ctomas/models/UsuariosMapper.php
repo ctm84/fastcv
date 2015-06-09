@@ -20,7 +20,7 @@ class UsuariosMapper
         $adapter = new $configAdapter();  
         
         //para query sin respuesta uso emptyexecSQL
-        return $adapter->emptyexecSQL('DELETE FROM USUARIOS WHERE ID =' .$id); 
+        return $adapter->emptyexecSQL('DELETE FROM USUARIOS WHERE ID ="' .$id.'"'); 
     }
     
     function getUsuario($id)
@@ -28,21 +28,17 @@ class UsuariosMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->execSQL('SELECT * FROM usuarios WHERE ID =' .$id);
+        return $adapter->execSQL('SELECT * FROM usuarios WHERE ID ="' .$id.'"');
     }
     
     function insertUsuario()
     {
-
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
 		
-		$id = rand(3, 99);
-		$pass = $_POST['password']; 
+		$id = uniqid('id_');
+		$pass = md5($_POST['password']); 
 		$correo = $_POST['email'];
-
-        //echo 'INSERT INTO USUARIOS(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")';
-        //die;
 
         return $adapter->emptyexecSQL('INSERT INTO usuarios(ID, CORREO, CONTRASENA) VALUES("'.$id.'","'.$correo.'","'.$pass.'")');
     }
@@ -56,17 +52,17 @@ class UsuariosMapper
 		$pass = $_POST['password']; 
 		$correo = $_POST['email'];
         
-        return $adapter->emptyexecSQL('UPDATE USUARIOS SET CORREO="'.$correo.'", CONTRASENA="'.$pass.'"WHERE ID ="'.$id.'"');
+        return $adapter->emptyexecSQL('UPDATE USUARIOS SET CORREO="'.$correo.'", CONTRASENA="'.$pass.'" WHERE ID ="'.$id.'"');
         
     }
     
-    function logUsuario()
+    function loginUsuario()
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
 
         $resultado = $adapter->execSQL(
-            'SELECT * FROM usuarios WHERE CORREO ="'.$_POST['email'].'" AND CONTRASENA ="'.$_POST['password'].'"'
+            'SELECT * FROM usuarios WHERE CORREO ="'.$_POST['email'].'" AND CONTRASENA ="'.md5($_POST['password']).'"'
         );
         
         if(count($resultado) >0){
@@ -76,6 +72,12 @@ class UsuariosMapper
         }
 
         return $resultado;
+    }
+    
+    function logoutUsuario()
+    {
+        session_start();
+		session_destroy();
     }
     
 }

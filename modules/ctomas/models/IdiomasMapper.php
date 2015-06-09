@@ -18,10 +18,9 @@ class IdiomasMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
 
-        $codigo = rand(3, 99);
         $nombre = $_POST['idioma']; 
 
-        return $adapter->emptyexecSQL('INSERT INTO IDIOMAS(CODIGO, IDIOMA, ID_CURRICULUM ) VALUES("'.$codigo.'","'.$nombre.'","'.$cv.'")');
+        return $adapter->emptyexecSQL('INSERT INTO IDIOMAS(IDIOMA, ID_CURRICULUM ) VALUES("'.$nombre.'","'.$cv.'")');
     }
     
     function borrarIdiomas($idi)
@@ -29,7 +28,7 @@ class IdiomasMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->emptyexecSQL('DELETE FROM IDIOMAS WHERE CODIGO ='.$idi); 
+        return $adapter->emptyexecSQL('DELETE FROM IDIOMAS  WHERE CODIGO ="'.$idi.'"'); 
     }
     
     function updateIdiomas($idi)

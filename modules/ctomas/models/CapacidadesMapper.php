@@ -7,11 +7,9 @@ class CapacidadesMapper
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
-
-        $codigo = rand(3, 99);
         $nombre = $_POST['capacidad']; 
 
-        return $adapter->emptyexecSQL('INSERT INTO CAPACIDADES(CODIGO, NOMBRE, ID_CURRICULUM ) VALUES("'.$codigo.'","'.$nombre.'","'.$cv.'")');
+        return $adapter->emptyexecSQL('INSERT INTO CAPACIDADES(NOMBRE, ID_CURRICULUM ) VALUES("'.$nombre.'","'.$cv.'")');
     }
     
     function borrarCapacidades($cap)
@@ -19,7 +17,7 @@ class CapacidadesMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();  
         
-        return $adapter->emptyexecSQL('DELETE FROM CAPACIDADES WHERE CODIGO ='.$cap); 
+        return $adapter->emptyexecSQL('DELETE FROM CAPACIDADES WHERE CODIGO ="'.$cap.'"'); 
     }
     
     function updateCapacidades($cap)

@@ -67,14 +67,14 @@ class Usuarios
     }
 
     function update()
-    {
+    {  
+        $usuario = new UsuariosMapper();
+     
         if($_POST){
-             header('Location: /usuarios');
-             $usuario = new UsuariosMapper();
+             $usuario->updateUsuario();
             
-             return $usuario->updateUsuario();
+             header('Location: /usuarios');
         }else{
-             $usuario = new UsuariosMapper();
              $datos = $usuario->getUsuario(FrontController::getInstance()->request[3]["id"]);
             
             return FrontController::getInstance()-> renderLayout(
@@ -87,19 +87,20 @@ class Usuarios
     function login()
     {
         $usuario = new UsuariosMapper();
-        $datos = $usuario->logUsuario();
+        $datos = $usuario->loginUsuario();
 
         if(count($datos) >0){
             header('Location: /index');
         }else{
-            header('Location: /errorues/error404');
+            header('Location: /errores/error404');
         }
     }
     
     function logout()
     {
-        session_start();
-		session_destroy();
+        $usuario = new UsuariosMapper();
+        $usuario->logoutUsuario();
+     
         header('Location: /index');
     }
 }

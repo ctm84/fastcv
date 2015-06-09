@@ -8,10 +8,9 @@ class ExperienciaMapper
         $configAdapter = FrontController::getInstance()->config['adapter'];
         $adapter = new $configAdapter();
 
-        $codigo = rand(3, 99);
         $nombre = $_POST['empresa']; 
 
-        return $adapter->emptyexecSQL('INSERT INTO EXPERIENCIA(CODIGO, EMPRESA, ID_CURRICULUM ) VALUES("'.$codigo.'","'.$nombre.'","'.$cv.'")');
+        return $adapter->emptyexecSQL('INSERT INTO EXPERIENCIA(EMPRESA, ID_CURRICULUM ) VALUES("'.$nombre.'","'.$cv.'")');
     }
     
     function borrarExperiencia ($exp)
