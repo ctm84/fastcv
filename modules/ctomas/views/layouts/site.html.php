@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+<?php
+    require_once('../modules/ctomas/controllers/sesion.php'); 
+    $sesion = new sesion();
+    $sesion ->init(); 
+?>
+
+>>>>>>> f741ed5c413c7f3e3e5d4376c93f9f9c97c9bb44
 <!DOCTYPE html>
 
 <html lang="es">
@@ -43,7 +52,11 @@
 				            <li>
                                 <?php  
                                     if (isset($_SESSION["correo_usuario"])) {
+<<<<<<< HEAD
                                         echo "<span id='padlock'></span> <a href='/usuarios/logout'>Cerrar Sesion</a>";
+=======
+                                        echo "<span id='padlock'></span> <a href='sesion/destroy'>Cerrar Sesion</a>";
+>>>>>>> f741ed5c413c7f3e3e5d4376c93f9f9c97c9bb44
                                     }else{
                                         echo "<a href='/usuarios/insert'>Iniciar Sesion</a>";
                                     }
