@@ -1,2 +1,2 @@
 # fastcv
-Curriculums generator web app.
+Curricula maker web app.

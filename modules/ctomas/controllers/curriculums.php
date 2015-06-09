@@ -6,7 +6,9 @@ class Curriculums
 {
     private $layout = 'site.html.php';
     private $layoutnav = 'sitenav.html.php';
+    private $layoutcv = 'sitemostrarcv.html.php';
     private $navbars = 'navbars.html.php';
+    private $newcvbar = 'navnewcv.html.php';
     
     //actions
     //************************//
@@ -29,7 +31,7 @@ class Curriculums
                 FrontController::getInstance()->renderView($datos)
             );
          }else{
-                $datos = $curriculum->getCurriculum(FrontController::getInstance()->request[3]["id"]);
+                $datos = $curriculums->getCurriculum(FrontController::getInstance()->request[3]["id"]);
 
                 return FrontController::getInstance()-> renderLayout(
                     $this->layout, 
@@ -86,10 +88,11 @@ class Curriculums
         }else{
              $datos = $curriculum->getCurriculumFull(FrontController::getInstance()->request[3]["id"]);
             
-             return FrontController::getInstance()-> renderLayout(
-                $this->layout, 
-                FrontController::getInstance()->renderView($datos)
-            );
+             return FrontController::getInstance()->renderLayoutNavbars(
+                $this->layoutnav,
+                FrontController::getInstance()->renderNavbars( $this->newcvbar), //llama a la navbarv de curriculums en lugar de a la general
+                FrontController::getInstance()->renderView($datos) 
+                );
         }
     }
     
@@ -98,11 +101,10 @@ class Curriculums
         $curriculums = new CurriculumsMapper();
         $datos = $curriculums->getCurriculumFull(FrontController::getInstance()->request[3]["id"]);
 
-        return FrontController::getInstance()->renderLayoutNavbars(
-            $this->layoutnav,
-            FrontController::getInstance()->renderNavbars( $this->navbars),
-            FrontController::getInstance()->renderView($datos)
-        );
+        return FrontController::getInstance()-> renderLayout(
+                $this->layoutcv, 
+                FrontController::getInstance()->renderView($datos)
+            );
     }
     
 }

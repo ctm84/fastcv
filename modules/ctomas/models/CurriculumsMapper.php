@@ -97,6 +97,11 @@ class CurriculumsMapper
         $datos -> idiomas = $datosidiomas;
         $datos -> capacidades = $datoscapacidades;
         
+        if($_POST){
+            $datos ->estilo = $_POST['estilo']; 
+        }
+        
+        
         return $datos;
         
         /*$resultado = array_merge($datospersonales, $datosexperiencia, $datosformacion, $datosidiomas, $datoscapacidades);*/
