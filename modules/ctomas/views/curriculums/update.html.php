@@ -103,17 +103,26 @@
                     </p>
 
                     <p>
-                        <label for="foto">Foto</label>
-                        <input type="file" id="foto" name="foto" disabled />
-                    </p>
-
-                    <p>
                         <input class="buttom" type="submit" value="Enviar">
                     </p>
                 </form>
             </div>
 
             <?php endforeach; ?>
+        </section>
+        
+        <section class="module content" id="datos-foto">
+            <div class="container">
+                <form name="subirfoto" class="form" method="post" action="/curriculums/uploadphoto/" enctype="multipart/form-data">
+                    <p>
+                        <label for="foto">Foto para el C.V.</label>
+                        <input type="file" id="foto" name="foto" accept="image/.jpg,.png"/>
+                    </p>
+                    <p>
+                        <input class="buttom" type="submit" value="Enviar">
+                    </p>
+                </form>
+            </div> 
         </section>
 
         <section class="module parallax parallax-2">

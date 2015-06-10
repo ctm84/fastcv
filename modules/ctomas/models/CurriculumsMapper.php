@@ -52,21 +52,21 @@ class CurriculumsMapper
         $adapter = new $configAdapter();
         
         return $adapter->emptyexecSQL('UPDATE CURRICULUM SET 
-        NOMBRE="'.$_POST['nombre'].'", 
-        APELLIDOS="'.$_POST['apellidos'].'", 
-        F_NACIMIENTO="'.$_POST['f_nacimiento'].'",
-        GENERO="'.$_POST['gender'].'",
-        ESTADO_CIVIL="'.$_POST['estado_civil'].'",
-        DIRECCION="'.$_POST['direccion'].'",
-        CP="'.$_POST['cp'].'",
-        POBLACION="'.$_POST['poblacion'].'",
-        PROVINCIA="'.$_POST['provincia'].'",
-        PAIS="'.$_POST['pais'].'",
-        TELEFONO="'.$_POST['telefono'].'",
-        CORREO="'.$_POST['email'].'",
-        PERFIL="'.$_POST['perfil'].'"
-             
-        WHERE ID ="'.$id.'"');
+            NOMBRE="'.$_POST['nombre'].'", 
+            APELLIDOS="'.$_POST['apellidos'].'", 
+            F_NACIMIENTO="'.$_POST['f_nacimiento'].'",
+            GENERO="'.$_POST['gender'].'",
+            ESTADO_CIVIL="'.$_POST['estado_civil'].'",
+            DIRECCION="'.$_POST['direccion'].'",
+            CP="'.$_POST['cp'].'",
+            POBLACION="'.$_POST['poblacion'].'",
+            PROVINCIA="'.$_POST['provincia'].'",
+            PAIS="'.$_POST['pais'].'",
+            TELEFONO="'.$_POST['telefono'].'",
+            CORREO="'.$_POST['email'].'",
+            PERFIL="'.$_POST['perfil'].'"
+
+            WHERE ID ="'.$id.'"');
     }
     
     function updateOtros($id)
@@ -101,10 +101,19 @@ class CurriculumsMapper
             $datos ->estilo = $_POST['estilo']; //solo es una prueba, se podría pasar el post directo a la view sin meterlo en el objeto.
         }
         
-        
         return $datos;
-        
-        /*$resultado = array_merge($datospersonales, $datosexperiencia, $datosformacion, $datosidiomas, $datoscapacidades);*/
-        /*return $resultado;*/
     }
+    
+    function uploadPhoto()
+    {
+        move_uploaded_file($_FILES['foto']['tmp_name'],
+                           $SERVER['DOCUMENT_ROOT'].$FILES['foto']['name']);
+    }
+    
+    //tmp_name: Es el nombre del fichero temporal donde se ha hecho el upload.
+    //name: Es el nombre original del fichero, el que le puso el usuario.
+    //type: El tipo mime del fichero. Por ejemplo si es una imagen jpeg el valor de esta clave será "image/jpeg"
+    //error: Indica si ha habido algún error durante la subida.
+    //size: Tamaño del fichero en bytes.
+
 }

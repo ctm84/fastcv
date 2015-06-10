@@ -107,4 +107,12 @@ class Curriculums
             );
     }
     
+    function uploadphoto()
+    {   
+        $curriculums = new CurriculumsMapper();
+        $curriculums ->uploadPhoto();
+        
+        header('Location: /curriculums');
+    }
+    
 }
