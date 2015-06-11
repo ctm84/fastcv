@@ -104,16 +104,22 @@ class CurriculumsMapper
         return $datos;
     }
     
-    function uploadPhoto()
+    function uploadPhoto($id)
     {
-        move_uploaded_file($_FILES['foto']['tmp_name'],
-                           $SERVER['DOCUMENT_ROOT'].$FILES['foto']['name']);
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter();  
+        
+        $uploads_dir = 'uploads'; //dejo variables en lugar de ponerlo directo por si cambio la nomenclatura para identificar las fotos
+        $name = $id.'-'.$_FILES['foto']['name'];
+        
+       move_uploaded_file($_FILES['foto']['tmp_name'],
+                           "$uploads_dir/$name");
+        
+        return $adapter->emptyexecSQL('UPDATE CURRICULUM SET 
+        REFFOTO="'.$name.'"
+        WHERE ID ="'.$id.'"');
+        
+        
+       
     }
-    
-    //tmp_name: Es el nombre del fichero temporal donde se ha hecho el upload.
-    //name: Es el nombre original del fichero, el que le puso el usuario.
-    //type: El tipo mime del fichero. Por ejemplo si es una imagen jpeg el valor de esta clave será "image/jpeg"
-    //error: Indica si ha habido algún error durante la subida.
-    //size: Tamaño del fichero en bytes.
-
 }

@@ -10,9 +10,9 @@
     <div id="cv" class="instaFade">
         <?php foreach ($datos->usuario as $usuario) : ?>
         <div class="mainDetails">
-            <!-- <div id="headshot" class="quickFade">
-                <img src="headshot.png" alt="foto del usuario" />
-            </div> -->
+            <div id="headshot" class="quickFade">
+                <img src="/../../uploads/<?= $usuario ['reffoto'] ?>" alt="foto del usuario" />
+            </div>
 
             <div id="name">
                 <h1 class="quickFade delayTwo"><?= $usuario ['nombre'] ?> <?= $usuario ['apellidos'] ?></h1>

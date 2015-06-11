@@ -110,9 +110,9 @@ class Curriculums
     function uploadphoto()
     {   
         $curriculums = new CurriculumsMapper();
-        $curriculums ->uploadPhoto();
+        $curriculums ->uploadPhoto(FrontController::getInstance()->request[3]["id"]);
         
-        header('Location: /curriculums');
+        header('Location: /curriculums/update/id/'.FrontController::getInstance()->request[3]["id"]);
     }
     
 }
