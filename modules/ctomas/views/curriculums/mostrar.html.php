@@ -7,7 +7,9 @@
 </head>
 
 <body id="top">
+    
     <div id="cv" class="instaFade">
+        
         <?php foreach ($datos->usuario as $usuario) : ?>
         <div class="mainDetails">
             <div id="headshot" class="quickFade">
@@ -32,20 +34,18 @@
         <div id="mainArea" class="quickFade delayFive">
             
             <section>
-                <article>
-                    <div class="sectionTitle">
-                        <h1>Formaci&oacute;n Acad&eacute;mica </h1>
-                    </div>
+                <div class="sectionTitle">
+                    <h1>Formaci&oacute;n Acad&eacute;mica </h1>
+                </div>
                     
-                    <?php foreach ($datos->formacion as $formacion) : ?>
-                    <div class="sectionContent">
-                        <p class="subDetails"><?= $formacion ['a_inicio'] ?>/ <?= $formacion ['a_fin'] ?></p>
-                        <p><b><?= $formacion ['titulacion'] ?></b>
-                            <br> <?= $formacion ['centro']?>, <?= $formacion ['provincia'] ?> </p>
-                    </div>
-                    <?php endforeach; ?>
+                <?php foreach ($datos->formacion as $formacion) : ?>
+                <div class="sectionContent">
+                    <p class="subDetails"><?= $formacion ['a_inicio'] ?>/ <?= $formacion ['a_fin'] ?></p>
+                    <p><b><?= $formacion ['titulacion'] ?></b>
+                        <br> <?= $formacion ['centro']?>, <?= $formacion ['provincia'] ?> </p>
+                </div>
+                <?php endforeach; ?>
                     
-                </article>
                 <div class="clear"></div>
             </section>
             
@@ -57,12 +57,10 @@
                 
                 <?php foreach ($datos->experiencia as $experiencia) : ?>
                 <div class="sectionContent">
-                    <article>
-                        <h2><?= $experiencia ['puesto']?></h2>
-                        <h3><?= $experiencia ['empresa']?></h3>
-                        <p class="subDetails"> <?= $experiencia ['f_inicio']?>/<?= $experiencia ['f_fin']?> </p>
-                        <p><?= $experiencia ['funciones']?></p>
-                    </article>
+                    <h2><?= $experiencia ['puesto']?></h2>
+                    <h3><?= $experiencia ['empresa']?></h3>
+                    <p class="subDetails"> <?= $experiencia ['f_inicio']?>/<?= $experiencia ['f_fin']?> </p>
+                    <p><?= $experiencia ['funciones']?></p>
                 </div>
                 <?php endforeach; ?>
                 
@@ -81,6 +79,7 @@
                     <?php endforeach; ?>    
                     </ul>
                 </div>
+                
                 <div class="clear"></div>
             </section>
 
@@ -102,6 +101,7 @@
                     <?php endforeach; ?>   
                     </ul>
                 </div>
+                
                 <div class="clear"></div>
             </section>
 
@@ -111,12 +111,11 @@
                 </div>
 
                 <div class="sectionContent">
-                    <article>
-                        <?php foreach ($datos->usuario as $usuario) : ?>
-                        <p><?= $usuario ['perfil']?></p>
-                        <?php endforeach; ?> 
-                    </article>
+                    <?php foreach ($datos->usuario as $usuario) : ?>
+                    <p><?= $usuario ['perfil']?></p>
+                    <?php endforeach; ?> 
                 </div>
+                
                 <div class="clear"></div>
             </section>
 
