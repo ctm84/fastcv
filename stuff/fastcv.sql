@@ -60,8 +60,8 @@ create table experiencia (
     pais varchar(30),
     puesto varchar(50),
     funciones text,
-    f_inicio varchar(15), 
-    f_fin varchar(15),
+    f_inicio varchar(25), 
+    f_fin varchar(25),
     id_curriculum varchar(20),
     primary key (codigo),
     foreign key (id_curriculum)
