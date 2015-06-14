@@ -79,6 +79,16 @@ class CurriculumsMapper
         WHERE ID ="'.$id.'"');
     }
     
+    function updateEstilo($id)
+    {
+        $configAdapter = FrontController::getInstance()->config['adapter'];
+        $adapter = new $configAdapter();
+        
+        return $adapter->emptyexecSQL('UPDATE CURRICULUM SET 
+        ESTILO="'.$_POST['estilo'].'"
+        WHERE ID ="'.$id.'"');
+    }
+    
     function getCurriculumFull($id) //temporal, pendiente de hacer cada consulta desde su controller
     {
         $configAdapter = FrontController::getInstance()->config['adapter'];
@@ -96,10 +106,6 @@ class CurriculumsMapper
         $datos -> formacion = $datosformacion;
         $datos -> idiomas = $datosidiomas;
         $datos -> capacidades = $datoscapacidades;
-        
-        if($_POST){
-            $datos ->estilo = $_POST['estilo']; //solo es una prueba, se podría pasar el post directo a la view sin meterlo en el objeto.
-        }
         
         return $datos;
     }

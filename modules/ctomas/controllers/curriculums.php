@@ -107,6 +107,14 @@ class Curriculums
             );
     }
     
+    function updateestilo()
+    {
+        $curriculums = new CurriculumsMapper();
+        $datos = $curriculums->updateEstilo(FrontController::getInstance()->request[3]["id"]);
+
+        header('Location: /curriculums/mostrar/id/'.FrontController::getInstance()->request[3]["id"]); 
+    }
+    
     function uploadphoto()
     {   
         $curriculums = new CurriculumsMapper();

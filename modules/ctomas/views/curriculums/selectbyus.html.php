@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html lang="es">
 
@@ -103,7 +103,7 @@
 			<div class="modalbox movedown container">
 				<a href="#close" title="Close" class="close">X</a>
 				<h3 class="sub-title">Elige un estilo</h2>
-				<form name="contacto" class="form" method="post" action="/curriculums/mostrar/id/<?= $rows['id'] ?>" target="_blank">
+				<form name="contacto" class="form" method="post" action="/curriculums/updateestilo/id/<?= $rows['id'] ?>" target="_blank">
 					<ul>
 						<li><label for="clasico">Clásico</label></li>
 						<li><input type="radio" name="estilo" value="clasico"/></li>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link type="text/css" rel="stylesheet" href="/assets/css/<?php echo $datos->estilo; ?>.css">
+    <link type="text/css" rel="stylesheet" href="/assets/css/<?php echo $datos->usuario[0]['estilo']; ?>.css">
     <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
 </head>
 
